@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #142544;
+  --color-navy: #1f3969;
+  --color-slate: #8e9eba;
+  --color-gold: #e1c379;
+  --color-cream: #f9e6d4;
+  --color-paper: #f6ede1;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Spectral", Georgia, serif;
+}
+
+:root {
+  --rule: rgba(20, 37, 68, 0.22);
+  --rule-soft: rgba(20, 37, 68, 0.1);
+  --rule-inv: rgba(249, 230, 212, 0.28);
+  --rule-inv-soft: rgba(249, 230, 212, 0.14);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.0625rem;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  /* Hand-laid paper grain. Sits under everything, costs one inline SVG. */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.14 0 0 0 0 0.27 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, .display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+  }
+
+  /* The document rail: year, country, city — the same three marks the posters carry. */
+  .rail {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.8125rem;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
+  }
+
+  /* Corner ticks — the poster's registration marks, redrawn in CSS. */
+  .ticks { position: relative; }
+  .ticks::before, .ticks::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+  }
+  .ticks::before { top: 0; left: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+  .ticks::after { bottom: 0; right: 0; border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+  .ticks-inv::before { border-color: var(--rule-inv); }
+  .ticks-inv::after  { border-color: var(--rule-inv); }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--color-navy);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+  .on-navy a:focus-visible, .on-navy button:focus-visible, .on-navy summary:focus-visible {
+    outline-color: var(--color-gold);
+  }
+
+  ::selection { background: var(--color-gold); color: var(--color-ink); }
+}
