@@ -1,185 +1,254 @@
-export type Person = {
-  name: string;
-  country?: string;
-  role?: string;
-  photo?: string;
-  credits?: string[];
+export type Credit = {
+  event: string;
+  year?: string;
+  /** The named edition, where the poster gives one instead of a year. */
+  edition?: string;
+  role: string;
 };
 
-export const chiefAdjudicators: Person[] = [
+export type Group = "cap" | "tab" | "oc" | "senior" | "advisor";
+
+export type Person = {
+  slug: string;
+  name: string;
+  group: Group;
+  role: string;
+  country?: string;
+  region?: string;
+  photo?: string;
+  affiliation?: string;
+  credits: Credit[];
+};
+
+export const groupLabel: Record<Group, string> = {
+  cap: "Adjudication core",
+  tab: "Tab team",
+  oc: "Organising committee",
+  senior: "Senior advisor",
+  advisor: "Regional advisor",
+};
+
+export const people: Person[] = [
   {
+    slug: "pranav-kagalkar",
     name: "Pranav Kagalkar",
+    group: "cap",
+    role: "Chief Adjudicator",
     country: "India",
+    region: "South Asia",
     photo: "pranav-kagalkar",
     credits: [
-      "Deputy Chief Adjudicator, WUDC 2025 and ABP 2022",
-      "WUDC Finals Judge, 2021, 2022, 2023 and 2026",
-      "UADC Finals Chair, 2023 and 2025",
-      "Australs Finals Judge, 2021 and 2025",
-      "ABP Finals Judge, 2023 and 2025",
+      { event: "wudc", year: "2025", role: "Deputy Chief Adjudicator" },
+      { event: "abp", year: "2022", role: "Deputy Chief Adjudicator" },
+      { event: "wudc", year: "2021", role: "Finals Judge" },
+      { event: "wudc", year: "2022", role: "Finals Judge" },
+      { event: "wudc", year: "2023", role: "Finals Judge" },
+      { event: "wudc", year: "2026", role: "Finals Judge" },
+      { event: "uadc", year: "2023", role: "Finals Chair" },
+      { event: "uadc", year: "2025", role: "Finals Chair" },
+      { event: "australs", year: "2021", role: "Finals Judge" },
+      { event: "australs", year: "2025", role: "Finals Judge" },
+      { event: "abp", year: "2023", role: "Finals Judge" },
+      { event: "abp", year: "2025", role: "Finals Judge" },
     ],
   },
   {
+    slug: "ally-pitt",
     name: "Ally Pitt",
+    group: "cap",
+    role: "Chief Adjudicator",
     country: "Australia",
+    region: "Oceania",
     photo: "ally-pitt",
     credits: [
-      "Open Grand Finals Chair, Australs 2026",
-      "Grand Finalist and 3rd Best Speaker, Australs 2025",
-      "Champion and Best Speaker, Easters 2025",
-      "Quarter Finals Judge, WUDC 2024",
-      "Quarter Finalist, WUDC 2022",
+      { event: "australs", year: "2026", role: "Open Grand Finals Chair" },
+      { event: "australs", year: "2025", role: "Grand Finalist, 3rd Best Speaker" },
+      { event: "easters", year: "2025", role: "Champion, Best Speaker" },
+      { event: "wudc", year: "2024", role: "Quarter Finals Judge" },
+      { event: "wudc", year: "2022", role: "Quarter Finalist" },
     ],
   },
   {
+    slug: "sunghyun-park",
     name: "Sunghyun Park",
+    group: "cap",
+    role: "Chief Adjudicator",
     country: "South Korea",
+    region: "North East Asia",
     photo: "sunghyun-park",
     credits: [
-      "Chief Adjudicator, ABP 2025 and NEADC 2024",
-      "EFL Finals Chair and 2nd Best Judge, ABP 2024",
-      "Open Grand Finals Panel and 7th Best Judge, Australs 2025",
-      "ESL Semis Judge, WUDC 2025",
-      "Open Break and 3rd Best EFL Speaker, WUDC 2026",
+      { event: "abp", year: "2025", role: "Chief Adjudicator" },
+      { event: "neadc", year: "2024", role: "Chief Adjudicator" },
+      { event: "abp", year: "2024", role: "EFL Finals Chair, 2nd Best Judge" },
+      { event: "australs", year: "2025", role: "Open Grand Finals Panel, 7th Best Judge" },
+      { event: "wudc", year: "2025", role: "ESL Semis Judge" },
+      { event: "wudc", year: "2026", role: "Open Break, 3rd Best EFL Speaker" },
     ],
   },
-];
-
-export const tabTeam: Person[] = [
   {
+    slug: "jemma-griffin",
     name: "Jemma Griffin",
-    country: "Australia",
+    group: "tab",
     role: "Tab Director",
+    country: "Australia",
+    region: "Oceania",
     photo: "jemma-griffin",
     credits: [
-      "Tab Director, Australs 2026",
-      "Australs Tab Team, 2024 and 2025",
-      "WUDC Tab Team, 2026 and 2027",
-      "Easters Tab Director, 2025 and 2026",
+      { event: "australs", year: "2026", role: "Tab Director" },
+      { event: "australs", year: "2024", role: "Tab Team" },
+      { event: "australs", year: "2025", role: "Tab Team" },
+      { event: "wudc", year: "2026", role: "Tab Team" },
+      { event: "wudc", year: "2027", role: "Tab Team" },
+      { event: "easters", year: "2025", role: "Tab Director" },
+      { event: "easters", year: "2026", role: "Tab Director" },
     ],
   },
   {
+    slug: "pranjal-singla",
     name: "Pranjal Singla",
-    country: "India",
+    group: "tab",
     role: "Deputy Tab Director",
+    country: "India",
+    region: "South Asia",
     photo: "pranjal-singla",
     credits: [
-      "Tab Director, NALSAR 2024",
-      "Tab Director, CUPD 2024",
-      "Tab Director, Delhi Debate Open 2024 and 2025",
-      "ESL Semi Finalist, Nepal Australs 2021",
-      "Open Double Octofinalist, Malaysia UADC 2022",
+      { event: "nalsar", year: "2024", role: "Tab Director" },
+      { event: "cupd", year: "2024", role: "Tab Director" },
+      { event: "delhi-debate-open", year: "2024", role: "Tab Director" },
+      { event: "delhi-debate-open", year: "2025", role: "Tab Director" },
+      { event: "australs", year: "2021", edition: "Nepal", role: "ESL Semi Finalist" },
+      { event: "uadc", year: "2022", edition: "Malaysia", role: "Open Double Octofinalist" },
     ],
   },
-];
-
-export const orgComm: Person[] = [
   {
+    slug: "v-sayiram",
     name: "V. Sayiram",
+    group: "oc",
     role: "Convenor",
+    country: "India",
+    region: "South Asia",
     photo: "v-sayiram",
     credits: [
-      "Deputy Chief Adjudicator, Kuantan ABP",
-      "ESL Semifinalist, Panama WUDC",
-      "Org Team, India Pre-WUDC Fundraiser 2023, The Delhi Debate 2024, DTU PD 2023",
+      { event: "abp", edition: "Kuantan", role: "Deputy Chief Adjudicator" },
+      { event: "wudc", edition: "Panama", role: "ESL Semifinalist" },
+      { event: "india-pre-wudc-fundraiser", year: "2023", role: "Org Team" },
+      { event: "the-delhi-debate", year: "2024", role: "Org Team" },
+      { event: "dtu-pd", year: "2023", role: "Org Team" },
     ],
   },
   {
+    slug: "krishnatara-senthil-kumar",
     name: "Krishnatara Senthil Kumar",
+    group: "oc",
     role: "Organising Committee",
-    credits: [
-      "Debate Secretary, NUALS",
-      "Co-Convenor, NUALS PD 2026",
-      "Quarter-Finalist, NLS PD 2024",
-    ],
-  },
-  {
-    name: "Rajat Mukherjee",
-    role: "Organising Committee",
-    credits: [
-      "Convenor, East India Pre ABP 2026",
-      "Co-Convenor, East India Pre WUDC 2025",
-      "Open Champion, NITD PD 2026",
-    ],
-  },
-  {
-    name: "Vani Bhardwaj",
-    role: "Organising Committee",
-    credits: [
-      "Quarter-Finals Panellist, ABP 2025",
-      "ESL Finals Panellist, UNSW AWGMDC 2025",
-      "Org Comm, RMLPD X-XIV",
-    ],
-  },
-  {
-    name: "Vansh Chadha",
-    role: "Organising Committee",
-    credits: [
-      "Deputy Chief Adjudicator, Australs 2026",
-      "Deputy Chief Adjudicator, UADC 2025",
-      "Convenor, DTU PD 2023",
-    ],
-  },
-];
-
-export const seniorAdvisors: Person[] = [
-  { name: "Anjali", role: "Senior Advisor" },
-  { name: "Kamal", role: "Senior Advisor" },
-];
-
-export type Region = { region: string; card: string; people: Person[] };
-
-export const regionalAdvisors: Region[] = [
-  {
+    country: "India",
     region: "South Asia",
-    card: "adv-sa",
-    people: [
-      { name: "Aayana Rai Bhojani", country: "India" },
-      { name: "Daniel Victor", country: "Sri Lanka" },
-      { name: "Sajid Asbat Khandaker", country: "Bangladesh" },
-      { name: "Srijan Poudel", country: "Nepal" },
+    affiliation: "Debate Secretary, NUALS",
+    credits: [
+      { event: "nuals-pd", year: "2026", role: "Co-Convenor" },
+      { event: "nls-pd", year: "2024", role: "Quarter-Finalist" },
     ],
   },
   {
-    region: "South East Asia",
-    card: "adv-sea",
-    people: [
-      { name: "Bea Legaspi", country: "Philippines" },
-      { name: "Ian Dylan Chai", country: "Malaysia / Singapore" },
-      { name: "Patrick Cheang", country: "Malaysia" },
-      { name: "Tengku Omar", country: "Indonesia" },
-      { name: "Vũ Anh Tuấn", country: "Vietnam" },
+    slug: "rajat-mukherjee",
+    name: "Rajat Mukherjee",
+    group: "oc",
+    role: "Organising Committee",
+    country: "India",
+    region: "South Asia",
+    credits: [
+      { event: "east-india-pre-abp", year: "2026", role: "Convenor" },
+      { event: "east-india-pre-wudc", year: "2025", role: "Co-Convenor" },
+      { event: "nitd-pd", year: "2026", role: "Open Champion" },
     ],
   },
   {
-    region: "North East Asia",
-    card: "adv-nea",
-    people: [
-      { name: "Donner Tang", country: "Macau" },
-      { name: "Minami Matsushima", country: "Japan" },
-      { name: "Ricky Jin", country: "China" },
-      { name: "Youngwoo Park", country: "South Korea" },
+    slug: "vani-bhardwaj",
+    name: "Vani Bhardwaj",
+    group: "oc",
+    role: "Organising Committee",
+    country: "India",
+    region: "South Asia",
+    credits: [
+      { event: "abp", year: "2025", role: "Quarter-Finals Panellist" },
+      { event: "awgmdc", year: "2025", role: "ESL Finals Panellist" },
+      { event: "rmlpd", edition: "X–XIV", role: "Org Comm" },
     ],
   },
   {
-    region: "Oceania",
-    card: "adv-oceania",
-    people: [
-      { name: "Aisha O'Malley", country: "New Zealand" },
-      { name: "Jordyn Gibson", country: "Australia" },
-      { name: "Kat Cheng", country: "Australia" },
+    slug: "vansh-chadha",
+    name: "Vansh Chadha",
+    group: "oc",
+    role: "Organising Committee",
+    country: "India",
+    region: "South Asia",
+    credits: [
+      { event: "australs", year: "2026", role: "Deputy Chief Adjudicator" },
+      { event: "uadc", year: "2025", role: "Deputy Chief Adjudicator" },
+      { event: "dtu-pd", year: "2023", role: "Convenor" },
     ],
   },
-  {
-    region: "Beyond Australasia",
-    card: "adv-beyond",
-    people: [
-      { name: "Jane Mentzinger", country: "USA" },
-      { name: "Juanita Hincapié Restrepo", country: "Colombia" },
-      { name: "Marta Vasić", country: "Serbia" },
-    ],
-  },
+  { slug: "anjali", name: "Anjali", group: "senior", role: "Senior Advisor", credits: [] },
+  { slug: "kamal", name: "Kamal", group: "senior", role: "Senior Advisor", credits: [] },
 ];
 
-export const advisorCount =
-  regionalAdvisors.reduce((n, r) => n + r.people.length, 0) + seniorAdvisors.length;
+const advisors: [string, string, string][] = [
+  ["Aayana Rai Bhojani", "India", "South Asia"],
+  ["Daniel Victor", "Sri Lanka", "South Asia"],
+  ["Sajid Asbat Khandaker", "Bangladesh", "South Asia"],
+  ["Srijan Poudel", "Nepal", "South Asia"],
+  ["Bea Legaspi", "Philippines", "South East Asia"],
+  ["Ian Dylan Chai", "Malaysia / Singapore", "South East Asia"],
+  ["Patrick Cheang", "Malaysia", "South East Asia"],
+  ["Tengku Omar", "Indonesia", "South East Asia"],
+  ["Vũ Anh Tuấn", "Vietnam", "South East Asia"],
+  ["Donner Tang", "Macau", "North East Asia"],
+  ["Minami Matsushima", "Japan", "North East Asia"],
+  ["Ricky Jin", "China", "North East Asia"],
+  ["Youngwoo Park", "South Korea", "North East Asia"],
+  ["Aisha O'Malley", "New Zealand", "Oceania"],
+  ["Jordyn Gibson", "Australia", "Oceania"],
+  ["Kat Cheng", "Australia", "Oceania"],
+  ["Jane Mentzinger", "USA", "Beyond Australasia"],
+  ["Juanita Hincapié Restrepo", "Colombia", "Beyond Australasia"],
+  ["Marta Vasić", "Serbia", "Beyond Australasia"],
+];
+
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+for (const [name, country, region] of advisors) {
+  people.push({
+    slug: slugify(name),
+    name,
+    group: "advisor",
+    role: "Regional Advisor",
+    country,
+    region,
+    credits: [],
+  });
+}
+
+export const personBySlug = Object.fromEntries(people.map((p) => [p.slug, p]));
+
+export const regions = [
+  "South Asia",
+  "South East Asia",
+  "North East Asia",
+  "Oceania",
+  "Beyond Australasia",
+];
+
+/** Everyone who holds a credit at a given tournament, newest year first. */
+export function peopleAtEvent(slug: string) {
+  return people
+    .flatMap((p) => p.credits.filter((c) => c.event === slug).map((c) => ({ person: p, credit: c })))
+    .sort((a, b) => (b.credit.year ?? "0").localeCompare(a.credit.year ?? "0"));
+}
+
+export const creditCount = people.reduce((n, p) => n + p.credits.length, 0);

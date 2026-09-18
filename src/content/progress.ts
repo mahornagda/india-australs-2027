@@ -17,24 +17,34 @@ export const groups: Group[] = [
     blurb: "Anyone with the link can do all of this today.",
     items: [
       { what: "Read what the tournament is, when it runs and where it is held" },
-      { what: "See the venue — IIT Delhi — and the hotel we are putting teams in" },
       {
-        what: "Meet the three Chief Adjudicators and read their full judging record",
-        note: "Pranav Kagalkar, Ally Pitt and Sunghyun Park",
-      },
-      { what: "See the tab team, the organising committee and all twenty-one advisors" },
-      {
-        what: "See the map of every country our advisors cover",
-        note: "Eighteen countries, five regions, drawn as routes into Delhi",
+        what: "Understand how Australs is actually debated, speech by speech",
+        note: "Useful if you have only ever debated British Parliamentary",
       },
       {
-        what: "Read the questions we can answer, and see plainly which ones we cannot yet",
-        note: "Nineteen questions. Eight are answered, eleven are openly marked as undecided",
+        what: "Look up any of the thirty-one people and read their full record",
+        note: "Fifty-two credits, taken line by line from the tournament's own posters",
       },
-      { what: "Search the questions by typing, instead of scrolling the whole list" },
+      { what: "Search and filter that directory by name, role, region or country" },
+      {
+        what: "Open any of nineteen tournaments and see everyone from this team who was there",
+        note: "A cross-index, so a person leads to a tournament and a tournament back to people",
+      },
+      {
+        what: "See the eighteen countries our advisors cover, drawn as routes into Delhi",
+        note: "Filterable by region, and every country lists its advisor",
+      },
+      {
+        what: "Read a real guide to Delhi",
+        note: "The venue, the hotel, nine things worth seeing, flights, visas, the weather and what to pack",
+      },
+      {
+        what: "Find every question we cannot answer yet on the page where you would look for it",
+        note: "Marked in place with the name of whoever holds the answer, rather than hidden in a list of questions",
+      },
       { what: "Leave a name and an email to be told the day registration opens" },
-      { what: "Find who to contact, and about what" },
-      { what: "Read all of it on a phone, and with a screen reader" },
+      { what: "Find who to ask about what, and who your own regional advisor is" },
+      { what: "Read all of it on a phone, with a keyboard, or with a screen reader" },
       { what: "Follow this page to see exactly where the website stands" },
     ],
   },

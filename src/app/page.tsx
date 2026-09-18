@@ -1,14 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import Hero from "@/components/Hero";
-import NetworkMap from "@/components/NetworkMap";
-import { Band, H2 } from "@/components/Section";
-import { chiefAdjudicators } from "@/content/people";
-import { faqs } from "@/content/faq";
-import { site } from "@/content/site";
+import RouteMap from "@/components/RouteMap";
+import { Band, H2, Prose } from "@/components/Shell";
 import { asset } from "@/lib/asset";
+import { people, creditCount, groupLabel } from "@/content/people";
+import { events } from "@/content/events";
+import { peopleAtEvent } from "@/content/people";
+import { groups as logGroups, counts } from "@/content/progress";
 
-const answered = faqs.filter((f) => !f.pending).length;
+const core = people.filter((p) => p.group === "cap" || p.group === "tab");
+const topEvents = events
+  .map((e) => ({ e, at: peopleAtEvent(e.slug) }))
+  .filter((r) => r.at.length > 0)
+  .sort((a, b) => b.at.length - a.at.length)
+  .slice(0, 8);
 
 export default function Home() {
   return (
@@ -16,114 +22,156 @@ export default function Home() {
       <Hero />
 
       <Band tone="navy">
-        <H2 sub="Australs has never been held in India. Twenty-one advisors across five regions are helping us bring it here, and every one of these countries has someone working on it.">
-          Where this is coming from
-        </H2>
-        <div className="mt-12">
-          <NetworkMap />
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-14">
+          <div>
+            <H2 sub="Australs has never been held in India. Twenty-one advisors across eighteen countries are helping bring it here — every dot on this sheet is someone working on it.">
+              Where this is coming from
+            </H2>
+            <Link href="/tournament/#reach" className="mt-5 inline-block border-b border-gold/50 pb-0.5 text-[14.5px] text-gold hover:border-gold">
+              More on the tournament →
+            </Link>
+          </div>
+          <RouteMap />
         </div>
       </Band>
 
-      <Band tone="paper">
-        <H2 sub="Three chief adjudicators, drawn from three of the regions the tournament serves.">
-          The adjudication core
-        </H2>
-        <ul className="mt-12 grid gap-10 sm:grid-cols-3">
-          {chiefAdjudicators.map((p) => (
-            <li key={p.name}>
-              <div className="ticks border border-ink/15 p-2.5">
-                <Image
-                  src={asset(`/img/portraits/${p.photo}.webp`)}
-                  alt={`${p.name}, chief adjudicator`}
-                  width={458}
-                  height={533}
-                  className="w-full object-cover"
-                  unoptimized
-                />
-              </div>
-              <h3 className="mt-4 text-[1.55rem] leading-tight">{p.name}</h3>
-              <p className="text-[15px] font-light text-ink/72">{p.country}</p>
-              <p className="mt-3 text-[15px] font-light leading-relaxed text-ink/75">
-                {p.credits?.[0]}
-              </p>
-            </li>
-          ))}
-        </ul>
-        <Link
-          href="/people"
-          className="mt-10 inline-block border-b border-navy/40 pb-1 text-[16px] text-navy hover:border-navy"
-        >
-          Every judge, organiser and advisor
-        </Link>
+      <Band>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-14">
+          <div>
+            <H2
+              count={`${creditCount} entries`}
+              sub="Every tournament the people running this have between them judged, chaired, tabbed, convened or won. Built line by line from their own announcements — open any of them to see who was there."
+            >
+              The record
+            </H2>
+            <Link href="/record/" className="mt-5 inline-block border-b border-navy/40 pb-0.5 text-[14.5px] text-navy hover:border-navy">
+              All {events.length} tournaments →
+            </Link>
+          </div>
+          <ul className="border-t border-ink/15 self-start">
+            {topEvents.map(({ e, at }) => {
+              const years = [...new Set(at.map((a) => a.credit.year).filter(Boolean))].sort();
+              return (
+                <li key={e.slug}>
+                  <Link href={`/record/${e.slug}/`} className="rec grid gap-x-5 gap-y-0.5 px-2 py-2.5 sm:grid-cols-[minmax(0,11rem)_1fr_auto] sm:items-baseline">
+                    <span className="flex items-baseline gap-2">
+                      <span className="text-[1.1rem] leading-none" style={{ fontFamily: "var(--font-display)" }}>
+                        {e.name}
+                      </span>
+                      <span className="accent datum text-[11px] opacity-76">{at.length}</span>
+                    </span>
+                    <span className="dim text-[13px] opacity-80">
+                      {[...new Set(at.map((a) => a.person.name))].slice(0, 3).join(", ")}
+                    </span>
+                    <span className="dim datum text-[11px] opacity-74 sm:text-right">
+                      {years.length ? `${years[0]}–${years[years.length - 1]}` : "—"}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </Band>
 
       <Band tone="cream">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-14">
           <div>
-            <H2 sub={`Debates run in the lecture theatres and auditorium at ${site.venue}. Teams stay at ${site.hotel}, around forty minutes away.`}>
-              Delhi, end of June
-            </H2>
-            <p className="mt-6 max-w-[46ch] text-[1.05rem] font-light leading-relaxed text-ink/75">
-              It will be hot and it will be the start of the monsoon. We will publish what to pack,
-              how to get in from the airport, and what a visa takes, long before you need to book
-              anything.
-            </p>
-            <Link
-              href="/venue"
-              className="mt-8 inline-block border-b border-navy/40 pb-1 text-[16px] text-navy hover:border-navy"
+            <H2
+              count={`${people.length} people`}
+              sub="Three chief adjudicators from three different regions, a tab team that has run Australs and Worlds, five organisers and twenty-one advisors."
             >
-              The venue and where you will stay
+              Who is running it
+            </H2>
+            <Link href="/people/" className="mt-5 inline-block border-b border-navy/40 pb-0.5 text-[14.5px] text-navy hover:border-navy">
+              The full directory →
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Image
-              src={asset("/img/cards/venue-iitd.webp")}
-              alt="Lecture theatres and the main building at IIT Delhi"
-              width={760}
-              height={950}
-              className="ticks w-full border border-ink/15"
-              unoptimized
-            />
-            <Image
-              src={asset("/img/cards/acco-grand.webp")}
-              alt="The Grand New Delhi, the tournament hotel"
-              width={760}
-              height={950}
-              className="ticks mt-8 w-full border border-ink/15"
-              unoptimized
-            />
+          <ul className="border-t border-ink/15 self-start">
+            {core.map((p) => (
+              <li key={p.slug}>
+                <Link href={`/people/${p.slug}/`} className="rec grid gap-x-5 gap-y-0.5 px-2 py-2.5 sm:grid-cols-[1.1fr_1fr_auto] sm:items-baseline">
+                  <span className="text-[15px]">{p.name}</span>
+                  <span className="dim text-[13px] opacity-80">{p.role}</span>
+                  <span className="dim datum text-[11px] opacity-74 sm:text-right">
+                    {p.country} · {p.credits.length} entries
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Band>
+
+      <Band>
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+          <div>
+            <H2 sub="Debates at IIT Delhi in Hauz Khas. Beds at The Grand in Vasant Kunj. Between them, the Qutub Minar, a thirteenth-century reservoir and the best eating in India.">
+              Delhi, end of June
+            </H2>
+            <Prose className="mt-6">
+              <p>
+                It will be 35 to 40 degrees and the monsoon will probably break during the week.
+                Every debating room is air conditioned. Everything else about the city is worth the
+                heat.
+              </p>
+            </Prose>
+            <ul className="mt-6 border-t border-ink/15">
+              {[
+                ["The venue", "Lecture theatres and the auditorium at IIT Delhi", "/delhi/#venue"],
+                ["Where you stay", "The Grand New Delhi, twin rooms, half an hour from campus", "/delhi/#stay"],
+                ["The city", "Nine things worth the trip, inside an hour of the venue", "/delhi/#city"],
+                ["Flights and visas", "One airport, an e-Visa for most of the region", "/delhi/#getting-here"],
+                ["Weather and packing", "What late June in Delhi actually does", "/delhi/#weather"],
+              ].map(([h, p, href]) => (
+                <li key={h}>
+                  <Link href={href} className="rec grid gap-x-5 px-2 py-2.5 sm:grid-cols-[minmax(0,10rem)_1fr]">
+                    <span className="text-[14.5px]">{h}</span>
+                    <span className="dim text-[13px] opacity-80">{p}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="grid grid-cols-2 gap-3 self-start">
+            <Image src={asset("/img/cards/venue-iitd.webp")} alt="The auditorium and main building at IIT Delhi" width={760} height={950} className="box w-full p-1" unoptimized />
+            <Image src={asset("/img/cards/acco-grand.webp")} alt="The Grand New Delhi" width={760} height={950} className="box mt-8 w-full p-1" unoptimized />
           </div>
         </div>
       </Band>
 
       <Band tone="navy">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-14">
           <div>
-            <H2 sub="A tournament site usually goes quiet about anything undecided. We would rather say which is which.">
-              What we know, and what we do not
+            <H2 sub="A tournament site usually goes quiet about anything undecided. We publish the list instead, with the name of the person who has each answer.">
+              What we have not settled
             </H2>
-          </div>
-          <div className="flex flex-col justify-center gap-5">
-            <p className="text-[1.15rem] font-light leading-relaxed text-cream/85">
-              Of the {faqs.length} questions people ask us most, {answered} have a real answer
-              today. The other {faqs.length - answered} are marked as undecided, with nothing
-              invented to fill the gap.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/faq"
-                className="border border-cream/30 px-6 py-3 text-[15.5px] text-cream transition-colors hover:border-gold hover:text-gold"
-              >
-                Read the questions
-              </Link>
-              <Link
-                href="/progress"
-                className="border border-gold/60 bg-gold/15 px-6 py-3 text-[15.5px] text-gold transition-colors hover:bg-gold/25"
-              >
-                Where the website stands
-              </Link>
+            <div className="mt-6 flex gap-6">
+              {[
+                [counts.done, "live"],
+                [counts.waiting, "waiting"],
+                [counts.later, "second build"],
+              ].map(([n, l]) => (
+                <div key={l as string}>
+                  <p className="datum text-[2rem] leading-none text-gold">{n as number}</p>
+                  <p className="rail mt-1 text-cream/70">{l as string}</p>
+                </div>
+              ))}
             </div>
+            <Link href="/progress/" className="mt-6 inline-block border border-gold/60 bg-gold/15 px-5 py-2.5 text-[14.5px] text-gold transition-colors duration-150 hover:bg-gold hover:text-ink">
+              Where the website stands
+            </Link>
           </div>
+          <ul className="border-t border-cream/15 self-start">
+            {logGroups[1].items.slice(0, 7).map((i) => (
+              <li key={i.what}>
+                <Link href="/progress/" className="rec grid gap-x-5 gap-y-0.5 px-2 py-2.5 sm:grid-cols-[1fr_auto] sm:items-baseline">
+                  <span className="text-[14px]">{i.what}</span>
+                  <span className="accent datum text-[11.5px] text-gold sm:text-right">{i.owner}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </Band>
     </>

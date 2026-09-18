@@ -1,105 +1,214 @@
 import Link from "next/link";
-import { Page, Band, H2 } from "@/components/Section";
+import { PageHead, Band, SubNav, H2, Prose, Pending } from "@/components/Shell";
 import InterestForm from "@/components/InterestForm";
 
-export const metadata = { title: "Register" };
+export const metadata = {
+  title: "Register",
+  description:
+    "How registration for India Australs 2027 will work — the steps, the fee, who can enter, judges, scholarships and equity.",
+};
 
-const steps = [
-  {
-    n: "One",
-    t: "Leave your details",
-    d: "Name, email, university. That is all we hold until registration opens.",
-  },
-  {
-    n: "Two",
-    t: "We tell you the day it opens",
-    d: "Along with the fee, what it covers, and how long you have.",
-  },
-  {
-    n: "Three",
-    t: "You register your team or apply to judge",
-    d: "One form for teams, a separate one for independent adjudicators.",
-  },
-  {
-    n: "Four",
-    t: "You pay, and we confirm",
-    d: "Once payment lands we confirm your place and send you your sign-in details.",
-  },
-  {
-    n: "Five",
-    t: "Your own page opens",
-    d: "Every form you still owe us, with its deadline, in one list instead of five emails.",
-  },
+const sections = [
+  { id: "how", label: "How it works" },
+  { id: "who", label: "Who can enter" },
+  { id: "money", label: "Fees and scholarships" },
+  { id: "judges", label: "Bringing a judge" },
+  { id: "equity", label: "Equity" },
+  { id: "notify", label: "Hear about it first" },
 ];
 
-const undecided = [
-  "The fee, and whether it covers the hotel",
-  "Which universities and regions may enter",
-  "The cap on teams per institution",
-  "Whether a debater signs up, or their university signs up for them",
-  "How many judges a team must bring",
-  "The scholarship route, and who it is for",
+const steps = [
+  ["Leave your details", "Name, email, university. That is all we hold until registration opens, and it is all we will ever hold without asking."],
+  ["We tell you the day it opens", "In the same message: the fee, what it covers, who may enter and how long you have. You will not have to chase four announcements to work out whether you can come."],
+  ["You register a team, or apply to judge", "One form for teams, a separate one for independent adjudicators. Both ask for the minimum we need and nothing else."],
+  ["You pay, and we confirm", "Once payment lands we confirm your place, and only then does your account exist. Confirmation carries your sign-in details."],
+  ["Your own page opens", "Every form you still owe us, with its deadline, in one list — instead of five emails and a spreadsheet you cannot see."],
 ];
 
 export default function Register() {
   return (
     <>
-      <Page
-        eyebrow="Register"
+      <PageHead
+        kicker="Register"
         title="Registration is not open yet"
-        lede="When it opens, it will open with everything you need to decide at once — the fee, what it covers, who may enter and how long you have. Leave your email and you will hear first."
+        lede="When it opens it will open complete — fee, eligibility, deadlines and judge requirements published together, so you can decide in one sitting rather than four. Leave an email and you will hear before it is announced anywhere else."
+        facts={[
+          { k: "Status", v: "Not open" },
+          { k: "Opens", v: "Date not set" },
+          { k: "Fee", v: "Not set" },
+          { k: "Who may enter", v: "Not set" },
+          { k: "Judges per team", v: "Not set" },
+        ]}
       />
+      <SubNav items={sections} />
 
-      <Band tone="paper">
-        <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
-          <div>
-            <H2 sub="Five steps, from now to your first round.">How this will work</H2>
-            <ol className="mt-10 space-y-8">
-              {steps.map((s) => (
-                <li key={s.t} className="grid grid-cols-[auto_1fr] gap-5">
-                  <span className="display mt-1 text-[13px] tracking-[0.28em] text-navy/70">
-                    {s.n.toUpperCase()}
-                  </span>
-                  <div>
-                    <h3 className="text-[1.25rem] leading-snug">{s.t}</h3>
-                    <p className="mt-1.5 text-[1.02rem] font-light leading-relaxed text-ink/72">
-                      {s.d}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+      <Band id="how">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
+          <H2 sub="Five steps, from today to your first round.">How this will work</H2>
+          <ol className="border-t border-ink/15">
+            {steps.map(([h, p], i) => (
+              <li key={h} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-ink/15 py-4">
+                <span className="datum pt-1 text-[12.5px] text-navy">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-[1.15rem]">{h}</h3>
+                  <p className="mt-1.5 text-[14.5px] leading-[1.66] text-ink/82">{p}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Band>
 
-          <div>
-            <h2 className="display text-[1.7rem] text-navy">Hear about it first</h2>
-            <div className="mt-6">
-              <InterestForm />
-            </div>
+      <Band id="who" tone="cream">
+        <H2 sub="Australs draws from Australasia and across Asia. Exactly where the line falls for 2027, and how many teams one university may send, is being settled by the organising committee together with the adjudication core.">
+          Who can enter
+        </H2>
+        <div className="mt-7 grid gap-8 lg:grid-cols-2">
+          <Prose>
+            <p>
+              What we can say now: it is a university tournament, debated in teams of three, and
+              institutions send teams rather than individuals turning up alone. You do not need to
+              have debated Australs before, and there is no qualification tournament to get through.
+            </p>
+            <p>
+              If you are unsure whether your circuit is in scope, ask your{" "}
+              <Link href="/people/?group=advisor">regional advisor</Link> — they will know before we
+              publish it.
+            </p>
+          </Prose>
+          <div className="space-y-3">
+            <Pending who="Sayiram and the adjudication core">
+              Which countries and regions are eligible.
+            </Pending>
+            <Pending who="Sayiram and the adjudication core">
+              The cap on teams per university.
+            </Pending>
+            <Pending who="Org Comm">
+              Whether a debater signs up for themselves, or their university signs up for its teams.
+              This one changes the shape of the form, so it comes first.
+            </Pending>
           </div>
         </div>
       </Band>
 
-      <Band tone="navy">
-        <H2 sub="These decide what the registration form even looks like, so they come before it opens, not after.">
-          Six things still to settle
-        </H2>
-        <ul className="mt-10 grid gap-x-12 gap-y-4 sm:grid-cols-2">
-          {undecided.map((u) => (
-            <li
-              key={u}
-              className="border-l border-gold/50 pl-5 text-[1.02rem] font-light leading-relaxed text-cream/82"
-            >
-              {u}
-            </li>
-          ))}
-        </ul>
-        <Link
-          href="/progress"
-          className="mt-10 inline-block border border-gold/60 bg-gold/15 px-6 py-3 text-[15.5px] text-gold transition-colors hover:bg-gold/25"
-        >
-          Who is deciding each one
-        </Link>
+      <Band id="money">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <H2 sub="Nothing here is decided, and we are not going to float a number we might have to raise.">
+              Fees and scholarships
+            </H2>
+            <Prose className="mt-6">
+              <p>
+                When the fee is published it will come with a line-by-line list of what it covers —
+                accommodation, meals, socials, transport between the hotel and campus — rather than a
+                single figure you have to write to us about.
+              </p>
+              <p>
+                There will be a <strong>scholarship route</strong>. Australs is expensive to reach
+                from most of the region, and a tournament that only hears from the institutions who
+                can afford it is a worse tournament. Who it is open to and how much it covers is
+                still being worked out.
+              </p>
+            </Prose>
+          </div>
+          <div className="space-y-3 self-center">
+            <Pending who="Sayiram">The entry fee, and exactly what it covers.</Pending>
+            <Pending who="Sayiram">
+              Whether accommodation at The Grand is inside the fee or charged on top.
+            </Pending>
+            <Pending who="Org Comm">
+              How people pay — card, bank transfer or UPI. This decides which payment company we
+              sign up with.
+            </Pending>
+            <Pending who="Org Comm">
+              The scholarship route: who it is for, and what it covers.
+            </Pending>
+          </div>
+        </div>
+      </Band>
+
+      <Band id="judges" tone="cream">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <H2 sub="Australs runs on the judges teams bring with them.">Bringing a judge</H2>
+            <Prose className="mt-6">
+              <p>
+                Tournaments in this format normally ask each team, or each pair of teams, to bring an
+                adjudicator. The requirement for 2027 is set by the adjudication core — Pranav
+                Kagalkar, Ally Pitt and Sunghyun Park — and is not fixed yet.
+              </p>
+              <p>
+                You can also come as an <strong>independent adjudicator</strong>, with no team
+                attached. That application opens alongside team registration and is judged on its
+                own merits, not on whether your institution is sending debaters.
+              </p>
+              <p>
+                Judge briefings, the adjudication guide and feedback expectations will all be
+                published on the <Link href="/resources/">prep page</Link> before the tournament.
+              </p>
+            </Prose>
+          </div>
+          <div className="space-y-3 self-center">
+            <Pending who="the adjudication core">How many judges a team must bring.</Pending>
+            <Pending who="the adjudication core">
+              Whether independent adjudicator applications are capped, and how they are assessed.
+            </Pending>
+          </div>
+        </div>
+      </Band>
+
+      <Band id="equity" tone="navy">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <H2 sub="Every tournament says it takes equity seriously. What matters is whether you know who to tell, and what happens after you do.">
+              Equity
+            </H2>
+            <Prose className="mt-6 text-cream/88">
+              <p>
+                There will be an equity team with its own confidential contact, independent of the
+                organising committee and the adjudication core. Anything raised with them stays with
+                them unless you agree otherwise.
+              </p>
+              <p>
+                Before registration opens we will publish the equity policy — what counts, how to
+                raise something, who reads it, what happens next, and what the tournament can and
+                cannot do. You should be able to read that and decide whether you trust it
+                <em> before</em> you buy a flight, not after something goes wrong.
+              </p>
+              <p>
+                Dietary, accessibility and accommodation needs are asked for on a form once your
+                registration is confirmed, and they go to the organising committee rather than the
+                equity team.
+              </p>
+            </Prose>
+          </div>
+          <div className="space-y-3 self-center">
+            <Pending who="the Equity team">
+              Who sits on the equity team, and the confidential address to reach them.
+            </Pending>
+            <Pending who="the Equity team">The equity policy, written out in full.</Pending>
+          </div>
+        </div>
+      </Band>
+
+      <Band id="notify">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <H2 sub="One message, the day it opens. Nothing else, ever.">Hear about it first</H2>
+            <Prose className="mt-6">
+              <p>
+                We will not send you a newsletter, and we will not pass your address to anyone. When
+                registration opens you get one email with everything in it. If you would rather hear
+                it from a person, your{" "}
+                <Link href="/people/?group=advisor">regional advisor</Link> will know at the same
+                time we do.
+              </p>
+            </Prose>
+          </div>
+          <InterestForm />
+        </div>
       </Band>
     </>
   );

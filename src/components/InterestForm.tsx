@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { interestForm } from "@/content/site";
 
@@ -10,17 +11,20 @@ export default function InterestForm() {
 
   if (!live) {
     return (
-      <div className="ticks border border-ink/20 bg-cream/60 p-8">
-        <p className="display text-[1.5rem] text-navy">This form is not switched on yet</p>
-        <p className="mt-4 max-w-[52ch] text-[1.02rem] font-light leading-relaxed text-ink/75">
-          The page is built and waiting. It needs one thing from the organising committee: the
-          address the sign-ups should land in, and the email address confirmations go out from.
-          Until then there is nowhere for your details to go, and collecting them without somewhere
-          safe to put them would be worse than saying so.
+      <div className="box border-l-2 border-l-gold bg-gold/8 p-6">
+        <p className="rail text-ink/70">Form not switched on</p>
+        <h3 className="mt-2 text-[1.4rem]">There is nowhere to send this yet</h3>
+        <p className="mt-3 max-w-[52ch] text-[14.5px] leading-[1.68] text-ink/82">
+          The form is built and waiting on two things: the address sign-ups should land in, and the
+          address confirmations go out from. Until both exist there is nowhere safe to put your
+          details, and collecting them anyway would be worse than saying so.
         </p>
-        <p className="mt-4 text-[15px] font-light text-ink/72">
-          Follow our announcements in the meantime — registration will not open without notice.
-        </p>
+        <Link
+          href="/progress/"
+          className="mt-4 inline-block border-b border-navy/40 pb-0.5 text-[14.5px] text-navy hover:border-navy"
+        >
+          Org Comm has both →
+        </Link>
       </div>
     );
   }
@@ -31,46 +35,34 @@ export default function InterestForm() {
       method="post"
       target="hidden-sink"
       onSubmit={() => setTimeout(() => setSent(true), 300)}
-      className="max-w-md"
+      className="box max-w-md p-6"
     >
-      <div className="space-y-5">
-        <label className="block">
-          <span className="text-[15px] font-light text-ink/75">Your name</span>
-          <input
-            required
-            name={interestForm.nameField}
-            className="mt-1.5 w-full border border-ink/25 bg-transparent px-4 py-3 text-[1.05rem] focus:border-navy"
-          />
-        </label>
-        <label className="block">
-          <span className="text-[15px] font-light text-ink/75">Email</span>
-          <input
-            required
-            type="email"
-            name={interestForm.emailField}
-            className="mt-1.5 w-full border border-ink/25 bg-transparent px-4 py-3 text-[1.05rem] focus:border-navy"
-          />
-        </label>
-        <label className="block">
-          <span className="text-[15px] font-light text-ink/75">University or institution</span>
-          <input
-            name={interestForm.instField}
-            className="mt-1.5 w-full border border-ink/25 bg-transparent px-4 py-3 text-[1.05rem] focus:border-navy"
-          />
-        </label>
+      <div className="space-y-4">
+        {[
+          ["Your name", interestForm.nameField, "text", true],
+          ["Email", interestForm.emailField, "email", true],
+          ["University or institution", interestForm.instField, "text", false],
+        ].map(([label, name, type, req]) => (
+          <label key={label as string} className="block">
+            <span className="rail text-ink/70">{label as string}</span>
+            <input
+              required={req as boolean}
+              type={type as string}
+              name={name as string}
+              className="mt-1.5 w-full border border-ink/30 bg-transparent px-3 py-2 text-[15px] focus:border-navy"
+            />
+          </label>
+        ))}
       </div>
-
       <button
         type="submit"
-        className="mt-7 w-full bg-navy px-8 py-3.5 text-[16px] text-cream transition-colors hover:bg-ink"
+        className="mt-6 w-full bg-navy px-6 py-2.5 text-[14.5px] text-cream transition-colors duration-150 hover:bg-ink"
       >
         Tell me when registration opens
       </button>
-
-      <p aria-live="polite" className="mt-4 text-[15px] font-light text-navy">
+      <p aria-live="polite" className="mt-3 text-[14px] text-navy">
         {sent ? "Got it. You will hear from us the day it opens." : ""}
       </p>
-
       <iframe title="hidden" name="hidden-sink" className="hidden" />
     </form>
   );

@@ -23,12 +23,18 @@ lists you can change without touching a page:
 | File | Holds |
 | --- | --- |
 | `site.ts` | Dates, venue, hotel, the menu, the sign-up form's address |
-| `people.ts` | Every judge, organiser and advisor, with their credits |
-| `faq.ts` | The questions, their answers, and which ones are still undecided |
+| `people.ts` | All 31 people and every credit they hold |
+| `events.ts` | The 19 tournaments those credits point at |
 | `progress.ts` | The build log that fills the `/progress` page |
-| `map.ts` | The countries on the route map |
+| `map.ts` | The 18 countries on the route map |
 
-Marking a question undecided is one flag: add `pending: true` to it.
+`people.ts` and `events.ts` together drive three things: the directory, a page
+per person, and the cross-index at `/record` — add a credit and every one of
+them updates.
+
+Anything the tournament has not decided is written in place with a `<Pending>`,
+which names who owes the answer and links back to the build log. There is no
+separate list of questions, on purpose: people read pages, not FAQs.
 
 ## Publishing
 
