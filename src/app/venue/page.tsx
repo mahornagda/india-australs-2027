@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Page, Band, H2 } from "@/components/Section";
 import { site } from "@/content/site";
+import { asset } from "@/lib/asset";
 
 export const metadata = { title: "Venue and stay" };
 
@@ -35,7 +36,7 @@ export default function Venue() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Image
-              src="/img/cards/venue-iitd.webp"
+              src={asset("/img/cards/venue-iitd.webp")}
               alt="The auditorium, a lecture theatre, and the main building at IIT Delhi"
               width={760}
               height={950}
@@ -43,7 +44,7 @@ export default function Venue() {
               unoptimized
             />
             <Image
-              src="/img/cards/venue-debsoc.webp"
+              src={asset("/img/cards/venue-debsoc.webp")}
               alt="Members of the IIT Delhi Debating Society"
               width={760}
               height={950}
@@ -58,7 +59,7 @@ export default function Venue() {
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <div className="order-2 grid grid-cols-2 gap-4 lg:order-1">
             <Image
-              src="/img/cards/acco-grand.webp"
+              src={asset("/img/cards/acco-grand.webp")}
               alt="The Grand New Delhi, exterior and atrium"
               width={760}
               height={950}
@@ -66,7 +67,7 @@ export default function Venue() {
               unoptimized
             />
             <Image
-              src="/img/cards/acco-rooms.webp"
+              src={asset("/img/cards/acco-rooms.webp")}
               alt="A twin room and the pool at The Grand New Delhi"
               width={760}
               height={950}

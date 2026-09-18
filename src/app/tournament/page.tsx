@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Page, Band, H2 } from "@/components/Section";
 import NetworkMap from "@/components/NetworkMap";
 import { site } from "@/content/site";
+import { asset } from "@/lib/asset";
 
 export const metadata = { title: "The tournament" };
 
@@ -90,7 +91,7 @@ export default function Tournament() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Image
-              src="/img/cards/idl.webp"
+              src={asset("/img/cards/idl.webp")}
               alt="The Indian Debating League at a closing ceremony"
               width={760}
               height={950}
@@ -98,7 +99,7 @@ export default function Tournament() {
               unoptimized
             />
             <Image
-              src="/img/cards/venue-debsoc.webp"
+              src={asset("/img/cards/venue-debsoc.webp")}
               alt="The IIT Delhi Debating Society"
               width={760}
               height={950}

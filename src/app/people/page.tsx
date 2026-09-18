@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import { Page, Band, H2 } from "@/components/Section";
 import Rail from "@/components/Rail";
 import {
@@ -19,7 +20,7 @@ function Portrait({ p, role }: { p: Person; role: string }) {
       <div className="ticks border border-ink/15 p-2">
         {p.photo ? (
           <Image
-            src={`/img/portraits/${p.photo}.webp`}
+            src={asset(`/img/portraits/${p.photo}.webp`)}
             alt={`${p.name}, ${role.toLowerCase()}`}
             width={458}
             height={533}

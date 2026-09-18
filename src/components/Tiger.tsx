@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 
 export default function Tiger({
   tone = "navy",
@@ -13,7 +14,7 @@ export default function Tiger({
 }) {
   return (
     <Image
-      src={`/img/tiger-${tone}.png`}
+      src={asset(`/img/tiger-${tone}.png`)}
       alt=""
       aria-hidden="true"
       width={width}

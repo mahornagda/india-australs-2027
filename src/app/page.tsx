@@ -6,6 +6,7 @@ import { Band, H2 } from "@/components/Section";
 import { chiefAdjudicators } from "@/content/people";
 import { faqs } from "@/content/faq";
 import { site } from "@/content/site";
+import { asset } from "@/lib/asset";
 
 const answered = faqs.filter((f) => !f.pending).length;
 
@@ -32,7 +33,7 @@ export default function Home() {
             <li key={p.name}>
               <div className="ticks border border-ink/15 p-2.5">
                 <Image
-                  src={`/img/portraits/${p.photo}.webp`}
+                  src={asset(`/img/portraits/${p.photo}.webp`)}
                   alt={`${p.name}, chief adjudicator`}
                   width={458}
                   height={533}
@@ -76,7 +77,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Image
-              src="/img/cards/venue-iitd.webp"
+              src={asset("/img/cards/venue-iitd.webp")}
               alt="Lecture theatres and the main building at IIT Delhi"
               width={760}
               height={950}
@@ -84,7 +85,7 @@ export default function Home() {
               unoptimized
             />
             <Image
-              src="/img/cards/acco-grand.webp"
+              src={asset("/img/cards/acco-grand.webp")}
               alt="The Grand New Delhi, the tournament hotel"
               width={760}
               height={950}
