@@ -11,11 +11,11 @@ export const metadata = {
 
 const sections = [
   { id: "venue", label: "The venue" },
-  { id: "stay", label: "Where you stay" },
+  { id: "stay", label: "Accommodation" },
   { id: "city", label: "The city" },
   { id: "getting-here", label: "Getting here" },
   { id: "visas", label: "Visas" },
-  { id: "weather", label: "Weather and packing" },
+  { id: "weather", label: "Weather and kit" },
   { id: "access", label: "Access" },
 ];
 
@@ -24,7 +24,7 @@ export default function Delhi() {
     <>
       <PageHead
         kicker="Delhi"
-        title="A week in south Delhi"
+        title="Delhi"
         lede="Debates run on the IIT Delhi campus in Hauz Khas. Teams sleep at The Grand in Vasant Kunj, half an hour west. Between the two sits some of the oldest built fabric in the city, and the best eating in it."
         facts={[
           { k: "Debating at", v: site.venue },
@@ -39,7 +39,7 @@ export default function Delhi() {
       <Band id="venue">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <H2 sub="The Indian Institute of Technology Delhi, in Hauz Khas — a green, walkable campus with the Qutub Minar a few minutes down the road.">
+            <H2 sub="The Indian Institute of Technology Delhi, in Hauz Khas. A green, walkable campus with the Qutub Minar a few minutes down the road.">
               IIT Delhi
             </H2>
             <Prose className="mt-6">
@@ -56,8 +56,8 @@ export default function Delhi() {
                 it.
               </p>
               <p>
-                Campus sits directly on the Magenta Line — the <strong>IIT Delhi</strong> metro
-                station is at the gate. From there it is around forty minutes to Hauz Khas Village
+                Campus sits on the Magenta Line. The <strong>IIT Delhi</strong> metro station is
+                at the gate. From there it is around forty minutes to Hauz Khas Village
                 on foot or five by auto.
               </p>
             </Prose>
@@ -77,7 +77,7 @@ export default function Delhi() {
           </div>
           <div className="order-1 lg:order-2">
             <H2 sub="The Grand New Delhi, in Vasant Kunj. Twin rooms, a pool, and breakfast in the atrium before the draw goes up.">
-              Where you stay
+              Accommodation
             </H2>
             <Prose className="mt-6">
               <p>
@@ -105,7 +105,7 @@ export default function Delhi() {
 
       <Band id="city">
         <H2 sub="You will have mornings free and at least one proper evening. Delhi rewards both.">
-          The city, in the gaps
+          The city
         </H2>
         <div className="mt-8 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
           {[
@@ -119,7 +119,7 @@ export default function Delhi() {
             },
             {
               h: "Mehrauli Archaeological Park",
-              p: "Next to the Qutub and almost empty by comparison — tombs, stepwells and a ruined mosque scattered through scrub. The best hour you can spend within walking distance of the venue.",
+              p: "Next to the Qutub and almost empty by comparison. Tombs, stepwells and a ruined mosque scattered through scrub. The best hour you can spend within walking distance of the venue.",
             },
             {
               h: "Lodhi Gardens",
@@ -135,7 +135,7 @@ export default function Delhi() {
             },
             {
               h: "Eating",
-              p: "Delhi food is regional India compressed into one city — Punjabi, Mughlai, South Indian, Tibetan in Majnu ka Tilla, Bengali in CR Park. Vegetarian is the default assumption everywhere, not an afterthought.",
+              p: "Regional India compressed into one city. Punjabi, Mughlai, South Indian, Tibetan in Majnu ka Tilla, Bengali in CR Park. Every kitchen assumes vegetarian first.",
             },
             {
               h: "Getting about",
@@ -162,8 +162,8 @@ export default function Delhi() {
               <p>
                 <strong>Indira Gandhi International (DEL)</strong> is the only international airport
                 serving Delhi. Terminal 3 takes almost all long-haul and most regional traffic. It
-                is well connected across the region — direct from Singapore, Kuala Lumpur, Bangkok,
-                Hong Kong, Seoul, Tokyo, Sydney, Melbourne, Colombo, Dhaka and Kathmandu.
+                flies direct from Singapore, Kuala Lumpur, Bangkok, Hong Kong, Seoul, Tokyo,
+                Sydney, Melbourne, Colombo, Dhaka and Kathmandu.
               </p>
               <p>
                 From the airport to the hotel is about twenty minutes by road. The Airport Express
@@ -204,7 +204,7 @@ export default function Delhi() {
       <Band id="weather" tone="cream">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <H2 sub="Late June into early July is the turn of the monsoon.">Weather, and what to bring</H2>
+            <H2 sub="Late June into early July is the turn of the monsoon.">Weather and kit</H2>
           </div>
           <div className="grid gap-x-10 gap-y-6 sm:grid-cols-2">
             {[
@@ -212,7 +212,7 @@ export default function Delhi() {
               ["Rain", "The monsoon usually breaks over Delhi in the last week of June. Expect sudden, heavy, short downpours rather than all-day drizzle."],
               ["Indoors", "Every debating room and the hotel are air conditioned, and the contrast is sharp. Bring something with sleeves for rounds."],
               ["Clothes", "Light cotton and linen. One set of smart clothes for the final and the dinner. Sandals you do not mind getting wet."],
-              ["Carry", "A refillable bottle, sunscreen, an umbrella, and any medication you take — pharmacies are everywhere but your brand may not be."],
+              ["Carry", "A refillable bottle, sunscreen, an umbrella, and any medication you take. Pharmacies sit on every corner. Your brand may not."],
               ["Power", "230V, Type C, D and M sockets. A universal adapter covers it."],
             ].map(([h, p]) => (
               <div key={h} className="border-t border-ink/15 pt-3.5">

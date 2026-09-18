@@ -16,7 +16,7 @@ export default function Progress() {
     <>
       <PageHead
         kicker="The build log"
-        title="Where the website stands"
+        title="Build log"
         lede="No jargon and no tickets. This is the whole picture: what the site can already do, what it is holding a blank space for, and the name of the person who can fill it in."
         facts={[
           { k: "Live now", v: `${counts.done} things anyone can do` },
@@ -36,7 +36,7 @@ export default function Progress() {
             <span className="bg-slate/50" style={{ width: `${(counts.later / total) * 100}%` }} />
           </div>
           <p className="mt-2.5 text-[13.5px] text-ink/75">
-            {counts.done} of {total} done. The website itself is finished — what is left is either an
+            {counts.done} of {total} done. The website itself is finished. What is left is either an
             answer nobody has given us, or the second build.
           </p>
         </div>

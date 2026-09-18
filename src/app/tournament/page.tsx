@@ -10,11 +10,12 @@ import { events } from "@/content/events";
 export const metadata = { title: "The tournament" };
 
 const sections = [
-  { id: "what", label: "What Australs is" },
-  { id: "format", label: "How it is debated" },
+  { id: "what", label: "Australs" },
+  { id: "history", label: "Since 1975" },
+  { id: "format", label: "The format" },
   { id: "rounds", label: "Rounds and the break" },
-  { id: "reach", label: "Where it reaches" },
-  { id: "organisers", label: "Who runs it" },
+  { id: "reach", label: "The network" },
+  { id: "organisers", label: "Organisers" },
 ];
 
 export default function Tournament() {
@@ -23,8 +24,8 @@ export default function Tournament() {
     <>
       <PageHead
         kicker="The tournament"
-        title="Fifty-two years, and never once in India"
-        lede="Australs has run every year since 1975, moving between the universities of Australasia and Asia. In 2027 it comes to New Delhi for the first time."
+        title="The tournament"
+        lede="Australs has run every year since 1975, moving between the universities of Australasia and Asia. In 2027 it lands in New Delhi. Fifty-two editions, and none of them here."
         facts={[
           { k: "Dates", v: site.datesLabel },
           { k: "Venue", v: `${site.venue}, ${site.city}`, href: "/delhi/#venue" },
@@ -40,7 +41,7 @@ export default function Tournament() {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <H2 sub="The oldest and largest university debating championship outside Europe and North America.">
-              What Australs is
+              Australs
             </H2>
             <Prose className="mt-6">
               <p>
@@ -53,13 +54,13 @@ export default function Tournament() {
                 It has been to Sydney, Manila, Kuala Lumpur, Auckland, Kathmandu and Kuantan. It has
                 never been to India. The <strong>Indian Debating League</strong> and the{" "}
                 <strong>IIT Delhi Debating Society</strong> are bringing it here, with an
-                adjudication core drawn from three of the regions the tournament serves — India,
+                adjudication core comes from three of the regions the tournament serves: India,
                 Australia and South Korea.
               </p>
               <p>
-                Between them, the people running this tournament hold{" "}
-                <Link href="/record/">records at {events.length} competitions</Link>, from world
-                championship finals to the Indian university circuit.
+                The people running it have judged finals at Worlds, chaired them at UADC and run
+                the tab at Australs. You can read what each of them has done on{" "}
+                <Link href="/people/">their own page</Link>.
               </p>
             </Prose>
           </div>
@@ -70,29 +71,68 @@ export default function Tournament() {
         </div>
       </Band>
 
-      <Band id="format" tone="cream">
-        <H2 sub="If you have only debated British Parliamentary, this is the part worth reading.">
-          How it is debated
+      <Band id="history" tone="cream">
+        <H2 sub="Fifty-two editions, hosted by a different university almost every time.">
+          Since 1975
         </H2>
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_1fr]">
           <Prose>
             <p>
-              Australs is debated in the <strong>Australasian format</strong>. Two teams of three —
-              Affirmative and Negative — face each other on the same motion. Each of the six
-              speakers gives an eight-minute substantive speech, alternating sides, and then each
-              team gives a four-minute <strong>reply speech</strong>, delivered by its first or
-              second speaker, with the Negative replying first.
+              Australs started as an Australian and New Zealand tournament. It did not stay one. Over
+              five decades the field pulled in universities from Indonesia, the Philippines,
+              Malaysia, Singapore, Japan, Korea, India, Sri Lanka, Bangladesh and Nepal, until the
+              name described the format more than the map.
             </p>
             <p>
-              That structure changes how a round feels. With only two teams there is nowhere to
-              hide: every argument you make is answered directly, and the reply speech asks you to
-              weigh the debate as a whole rather than add to it. Cases are built across three
-              speeches rather than squeezed into one, so depth beats breadth.
+              That spread is why the tournament breaks in more than one category. Teams debating in
+              a second or a foreign language get ranked against each other as well as against the
+              whole field, so a team from Jakarta or Hanoi is not measured only against Melbourne.
             </p>
             <p>
-              Some motions are <strong>released in advance</strong> and prepared; others are
-              impromptu, released shortly before the round. Which is which, and how long you get,
-              is set by the adjudication core.
+              Hosting moves. A society bids, wins, and spends two years building the thing. Delhi
+              won 2027, which puts the tournament in India for the first time since it began.
+            </p>
+          </Prose>
+          <div className="box h-fit">
+            <p className="rail border-b border-ink/15 px-4 py-2.5 text-ink/72">What hosting means</p>
+            {[
+              ["Two years", "From winning the bid to the first round"],
+              ["One venue", "Every round on the IIT Delhi campus"],
+              ["One hotel", "The whole field under a single roof"],
+              ["Five regions", "Advisors working their own circuits"],
+              ["Eight days", "Rounds, out-rounds, socials and a final"],
+            ].map(([k, v]) => (
+              <div key={k} className="flex items-baseline gap-4 border-b border-ink/15 px-4 py-2.5 last:border-0">
+                <span className="datum w-[5.5rem] shrink-0 text-[12.5px] text-navy">{k}</span>
+                <span className="text-[14px] text-ink/85">{v}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Band>
+
+      <Band id="format">
+        <H2 sub="If you have only debated British Parliamentary, read this part.">
+          The format
+        </H2>
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_1fr]">
+          <Prose>
+            <p>
+              Australs uses the <strong>Australasian format</strong>. One team of three faces one
+              other, Affirmative against Negative, on the same motion. Six substantive speeches of
+              eight minutes, alternating sides. Then a four-minute <strong>reply</strong> from each
+              team, given by its first or second speaker. Negative replies first.
+            </p>
+            <p>
+              Two teams changes how a round feels. Nothing sits between you and the people
+              arguing the other side, so every claim you make comes back at you by name. Cases
+              build across three speeches instead of squeezing into one, which rewards depth. The
+              reply asks you to weigh what happened rather than add to it.
+            </p>
+            <p>
+              Some motions land in your inbox weeks early. Others go up shortly before you
+              debate them. The adjudication core decides which rounds work which way, and how long
+              you get.
             </p>
           </Prose>
           <div>
@@ -106,7 +146,7 @@ export default function Tournament() {
                   ["2nd Negative", "8 min", "Rebuts, extends"],
                   ["3rd Affirmative", "8 min", "Rebuttal, no new matter"],
                   ["3rd Negative", "8 min", "Rebuttal, no new matter"],
-                  ["Negative reply", "4 min", "Weighs the debate — 1st or 2nd speaker"],
+                  ["Negative reply", "4 min", "Weighs the debate. 1st or 2nd speaker"],
                   ["Affirmative reply", "4 min", "Weighs the debate, last word"],
                 ].map(([who, len, what]) => (
                   <li key={who} className="grid grid-cols-[1fr_auto] gap-x-4 border-b border-ink/15 px-4 py-2.5 last:border-0">
@@ -124,20 +164,20 @@ export default function Tournament() {
       <Band id="rounds">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
-            <H2 sub="The shape of the week is the adjudication core's and the tab team's to set, and they have not set it yet.">
+            <H2 sub="The adjudication core and the tab team set the shape of the week. They have not set it yet.">
               Rounds and the break
             </H2>
             <Prose className="mt-6">
               <p>
-                An Australs is normally eight or nine preliminary rounds across the week, followed by
-                out-rounds for the teams that break. Tournaments of this size usually run an Open
-                break alongside ESL and EFL breaks, so that teams debating in a second or foreign
-                language are ranked against each other as well as against the field.
+                An Australs normally runs eight or nine preliminary rounds across the week, then
+                out-rounds for the teams that break. Tournaments this size usually run an Open
+                break alongside ESL and EFL, so teams debating in a second or foreign language get
+                ranked against each other as well as against the field.
               </p>
               <p>
-                None of that is confirmed for 2027. When it is, it appears on the{" "}
+                None of that holds for 2027 yet. The moment it does, it goes on the{" "}
                 <Link href="/schedule/">schedule</Link>, and every registered team gets it by email
-                the same day.
+                that day.
               </p>
             </Prose>
           </div>
@@ -146,7 +186,7 @@ export default function Tournament() {
               How many preliminary rounds, and how many motions are released in advance.
             </Pending>
             <Pending who="the adjudication core">
-              The break structure — Open, ESL, EFL, and how many teams in each.
+              The break structure: Open, ESL, EFL, and how many teams in each.
             </Pending>
             <Pending who="Jemma and Pranjal">The day-by-day running order.</Pending>
             <Pending who="Jemma">
@@ -157,8 +197,8 @@ export default function Tournament() {
       </Band>
 
       <Band id="reach" tone="navy">
-        <H2 sub="Twenty-one advisors, eighteen countries, five regions. These are the places this tournament has people — not a list of who may enter, which is still being settled.">
-          Where it reaches
+        <H2 sub="Twenty-one advisors, eighteen countries, five regions. These are the places this tournament has people. Eligibility is a separate question, and the organising committee is still settling it.">
+          The network
         </H2>
         <div className="mt-8 min-w-0">
           <RouteMap />
@@ -168,7 +208,7 @@ export default function Tournament() {
       <Band id="organisers" tone="cream">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
-            <H2 sub="Two organisations, running it between them.">Who runs it</H2>
+            <H2 sub="Two organisations, running it between them.">Organisers</H2>
             <Prose className="mt-6">
               <p>
                 <strong>The Indian Debating League</strong> runs debating across Indian universities
@@ -177,12 +217,12 @@ export default function Tournament() {
               </p>
               <p>
                 <strong>The IIT Delhi Debating Society</strong> hosts the tournament on campus and
-                runs it on the ground — the desk, the rooms, the socials and everything that happens
-                between rounds.
+                runs it on the ground: the desk, the rooms, the socials and everything that
+                happens between rounds.
               </p>
             </Prose>
             <Link href="/people/" className="mt-6 inline-block border-b border-navy/40 pb-0.5 text-[14.5px] text-navy hover:border-navy">
-              All thirty-one people →
+              All thirty-one people
             </Link>
           </div>
           <ul className="border-t border-ink/15 self-start">

@@ -22,13 +22,11 @@ export const groups: Group[] = [
         note: "Useful if you have only ever debated British Parliamentary",
       },
       {
-        what: "Look up any of the thirty-one people and read their full record",
-        note: "Fifty-two credits, taken line by line from the tournament's own posters",
+        what: "See all thirty-one people with a photo, and open any of them",
+        note: "Judges and organisers carry their debating record, taken from the tournament's own posters",
       },
-      { what: "Search and filter that directory by name, role, region or country" },
       {
-        what: "Open any of nineteen tournaments and see everyone from this team who was there",
-        note: "A cross-index, so a person leads to a tournament and a tournament back to people",
+        what: "Read what a regional advisor actually does, and who else covers your region",
       },
       {
         what: "See the eighteen countries our advisors cover, drawn as routes into Delhi",
@@ -36,7 +34,13 @@ export const groups: Group[] = [
       },
       {
         what: "Read a real guide to Delhi",
-        note: "The venue, the hotel, nine things worth seeing, flights, visas, the weather and what to pack",
+        note: "The venue, the hotel, nine places worth a free morning, flights, visas, weather and what to pack",
+      },
+      {
+        what: "Understand what hosting an Australs involves, and how the tournament grew since 1975",
+      },
+      {
+        what: "Picture a day at a tournament this size, while the real timetable is settled",
       },
       {
         what: "Find every question we cannot answer yet on the page where you would look for it",
@@ -53,20 +57,20 @@ export const groups: Group[] = [
     title: "Waiting on an answer",
     tone: "waiting",
     blurb:
-      "Each of these is a blank on the site right now. The page is already built — it just needs the answer typed in. The name beside it is the person who has it.",
+      "Each of these is a blank on the site right now. The page is already built and needs the answer typed in. The name beside it belongs to whoever has it.",
     items: [
       {
         what: "Confirm 27 June to 4 July 2027 is final, and not moving",
         owner: "Sayiram",
       },
       {
-        what: "Who is allowed to enter — which countries, and how many teams a university may send",
+        what: "Who is allowed to enter: which countries, and how many teams a university may send",
         owner: "Sayiram and the adjudication core",
       },
       { what: "The entry fee, and exactly what it covers", owner: "Sayiram" },
       { what: "The day registration opens and the day it closes", owner: "Org Comm" },
       {
-        what: "How people pay — card, bank transfer or UPI",
+        what: "How people pay: card, bank transfer or UPI",
         note: "This decides which payment company we sign up with",
         owner: "Org Comm",
       },

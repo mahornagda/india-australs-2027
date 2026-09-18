@@ -25,7 +25,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: `${site.name} — ${site.longName}`, template: `%s · ${site.name}` },
+  title: { default: `${site.name}. ${site.longName}`, template: `%s · ${site.name}` },
   description: `The Australasian Intervarsity Debating Championship comes to India. ${site.datesLabel}, at ${site.venue}, ${site.city}.`,
   openGraph: {
     title: site.name,

@@ -4,7 +4,7 @@ import { PageHead, Band, H2, Prose } from "@/components/Shell";
 export const metadata = { title: "Prep and policies" };
 
 const planned = [
-  ["Participant handbook", "The format, the rules, the schedule, the venue, and what to do if something goes wrong — in one document rather than six announcements.", "Organising committee"],
+  ["Participant handbook", "The format, the rules, the schedule, the venue, and what to do if something goes wrong. One document instead of six announcements.", "Organising committee"],
   ["Equity policy", "What counts as an equity issue, how to raise one, who reads it, and what happens next.", "Equity team"],
   ["Adjudication guide", "How this tournament expects judges to weigh arguments, give feedback and fill a ballot.", "Adjudication core"],
   ["Motions and prep", "Past Australs motions, the prepared-motion release, and reading for the rounds announced early.", "Adjudication core"],
@@ -38,8 +38,8 @@ export default function Resources() {
         </ul>
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           <div>
-            <H2 sub="The page is built. It is waiting on words, not on code — the moment any of these exists it appears here.">
-              Why this is empty
+            <H2 sub="The page is built. It waits on words, not on code. The moment any of these exists it appears here.">
+              The delay
             </H2>
           </div>
           <Prose>

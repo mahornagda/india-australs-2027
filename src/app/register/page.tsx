@@ -5,7 +5,7 @@ import InterestForm from "@/components/InterestForm";
 export const metadata = {
   title: "Register",
   description:
-    "How registration for India Australs 2027 will work — the steps, the fee, who can enter, judges, scholarships and equity.",
+    "How registration for India Australs 2027 will work: the steps, the fee, who can enter, judges, scholarships and equity.",
 };
 
 const sections = [
@@ -22,7 +22,7 @@ const steps = [
   ["We tell you the day it opens", "In the same message: the fee, what it covers, who may enter and how long you have. You will not have to chase four announcements to work out whether you can come."],
   ["You register a team, or apply to judge", "One form for teams, a separate one for independent adjudicators. Both ask for the minimum we need and nothing else."],
   ["You pay, and we confirm", "Once payment lands we confirm your place, and only then does your account exist. Confirmation carries your sign-in details."],
-  ["Your own page opens", "Every form you still owe us, with its deadline, in one list — instead of five emails and a spreadsheet you cannot see."],
+  ["Your own page opens", "Every form you still owe us, with its deadline, in one list. No more hunting through five emails and a spreadsheet you cannot open."],
 ];
 
 export default function Register() {
@@ -31,7 +31,7 @@ export default function Register() {
       <PageHead
         kicker="Register"
         title="Registration is not open yet"
-        lede="When it opens it will open complete — fee, eligibility, deadlines and judge requirements published together, so you can decide in one sitting rather than four. Leave an email and you will hear before it is announced anywhere else."
+        lede="When it opens, it opens complete. Fee, eligibility, deadlines and judge requirements go up together, so you can decide in one sitting instead of four. Leave an email and you hear before anyone announces it anywhere else."
         facts={[
           { k: "Status", v: "Not open" },
           { k: "Opens", v: "Date not set" },
@@ -63,7 +63,7 @@ export default function Register() {
 
       <Band id="who" tone="cream">
         <H2 sub="Australs draws from Australasia and across Asia. Exactly where the line falls for 2027, and how many teams one university may send, is being settled by the organising committee together with the adjudication core.">
-          Who can enter
+          Eligibility
         </H2>
         <div className="mt-7 grid gap-8 lg:grid-cols-2">
           <Prose>
@@ -74,8 +74,7 @@ export default function Register() {
             </p>
             <p>
               If you are unsure whether your circuit is in scope, ask your{" "}
-              <Link href="/people/?group=advisor">regional advisor</Link> — they will know before we
-              publish it.
+              <Link href="/people/">regional advisor</Link>. They will know before we publish it.
             </p>
           </Prose>
           <div className="space-y-3">
@@ -101,9 +100,9 @@ export default function Register() {
             </H2>
             <Prose className="mt-6">
               <p>
-                When the fee is published it will come with a line-by-line list of what it covers —
-                accommodation, meals, socials, transport between the hotel and campus — rather than a
-                single figure you have to write to us about.
+                The fee will arrive with a line-by-line list of what it covers: accommodation,
+                meals, socials, transport between the hotel and campus. You should not have to
+                write to us to find out what you paid for.
               </p>
               <p>
                 There will be a <strong>scholarship route</strong>. Australs is expensive to reach
@@ -119,7 +118,7 @@ export default function Register() {
               Whether accommodation at The Grand is inside the fee or charged on top.
             </Pending>
             <Pending who="Org Comm">
-              How people pay — card, bank transfer or UPI. This decides which payment company we
+              How people pay: card, bank transfer or UPI. This decides which payment company we
               sign up with.
             </Pending>
             <Pending who="Org Comm">
@@ -132,12 +131,12 @@ export default function Register() {
       <Band id="judges" tone="cream">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
-            <H2 sub="Australs runs on the judges teams bring with them.">Bringing a judge</H2>
+            <H2 sub="Australs runs on the judges teams bring with them.">Judges</H2>
             <Prose className="mt-6">
               <p>
                 Tournaments in this format normally ask each team, or each pair of teams, to bring an
-                adjudicator. The requirement for 2027 is set by the adjudication core — Pranav
-                Kagalkar, Ally Pitt and Sunghyun Park — and is not fixed yet.
+                adjudicator. Pranav Kagalkar, Ally Pitt and Sunghyun Park set that requirement
+                for 2027, and they have not fixed it yet.
               </p>
               <p>
                 You can also come as an <strong>independent adjudicator</strong>, with no team
@@ -172,7 +171,7 @@ export default function Register() {
                 them unless you agree otherwise.
               </p>
               <p>
-                Before registration opens we will publish the equity policy — what counts, how to
+                Before registration opens we will publish the equity policy: what counts, how to
                 raise something, who reads it, what happens next, and what the tournament can and
                 cannot do. You should be able to read that and decide whether you trust it
                 <em> before</em> you buy a flight, not after something goes wrong.
@@ -196,7 +195,7 @@ export default function Register() {
       <Band id="notify">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
           <div>
-            <H2 sub="One message, the day it opens. Nothing else, ever.">Hear about it first</H2>
+            <H2 sub="One message, the day it opens. Nothing else, ever.">Get the date</H2>
             <Prose className="mt-6">
               <p>
                 We will not send you a newsletter, and we will not pass your address to anyone. When

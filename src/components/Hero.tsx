@@ -41,7 +41,7 @@ export default function Hero() {
           <Link href="/register/" className="w-full max-w-xs bg-navy px-7 py-3 text-[14.5px] text-cream transition-colors duration-150 hover:bg-ink sm:w-auto">
             Tell me when registration opens
           </Link>
-          <Link href="/record/" className="w-full max-w-xs border border-ink/30 px-7 py-3 text-[14.5px] transition-colors duration-150 hover:border-navy hover:bg-navy hover:text-cream sm:w-auto">
+          <Link href="/people/" className="w-full max-w-xs border border-ink/30 px-7 py-3 text-[14.5px] transition-colors duration-150 hover:border-navy hover:bg-navy hover:text-cream sm:w-auto">
             See who is running it
           </Link>
         </div>

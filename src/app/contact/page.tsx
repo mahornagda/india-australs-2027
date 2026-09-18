@@ -7,7 +7,7 @@ export const metadata = { title: "Contact" };
 const routes = [
   {
     who: "The organising committee",
-    what: "Registration, fees, rooms, food, transport, invitation letters — anything logistical.",
+    what: "Registration, fees, rooms, food, transport, invitation letters. Anything logistical.",
     group: "oc" as const,
   },
   {
@@ -27,8 +27,8 @@ export default function Contact() {
     <>
       <PageHead
         kicker="Contact"
-        title="Who to ask, about what"
-        lede="Most of what people write to us about is already answered on the page it belongs to. If yours is not, these are the people who hold the answer — and the fastest way in is usually your own regional advisor."
+        title="Contact"
+        lede="Most of what lands in our inbox is already answered on the page it belongs to. If yours is not, these are the people holding the answer. Your own regional advisor is usually the fastest way in."
         facts={[
           { k: "Logistics", v: "Organising committee" },
           { k: "Judging and format", v: "Adjudication core" },
@@ -70,7 +70,7 @@ export default function Contact() {
 
       <Band tone="navy">
         <H2 sub="If you debate in one of these countries, your advisor is the fastest way in. They know this tournament and they know your circuit.">
-          Start with your region
+          By region
         </H2>
         <div className="mt-8 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {regions.map((r) => (

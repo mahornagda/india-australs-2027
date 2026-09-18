@@ -144,6 +144,7 @@ export const people: Person[] = [
     country: "India",
     region: "South Asia",
     affiliation: "Debate Secretary, NUALS",
+    photo: "krishnatara-senthil-kumar",
     credits: [
       { event: "nuals-pd", year: "2026", role: "Co-Convenor" },
       { event: "nls-pd", year: "2024", role: "Quarter-Finalist" },
@@ -156,6 +157,7 @@ export const people: Person[] = [
     role: "Organising Committee",
     country: "India",
     region: "South Asia",
+    photo: "rajat-mukherjee",
     credits: [
       { event: "east-india-pre-abp", year: "2026", role: "Convenor" },
       { event: "east-india-pre-wudc", year: "2025", role: "Co-Convenor" },
@@ -169,6 +171,7 @@ export const people: Person[] = [
     role: "Organising Committee",
     country: "India",
     region: "South Asia",
+    photo: "vani-bhardwaj",
     credits: [
       { event: "abp", year: "2025", role: "Quarter-Finals Panellist" },
       { event: "awgmdc", year: "2025", role: "ESL Finals Panellist" },
@@ -182,14 +185,15 @@ export const people: Person[] = [
     role: "Organising Committee",
     country: "India",
     region: "South Asia",
+    photo: "vansh-chadha",
     credits: [
       { event: "australs", year: "2026", role: "Deputy Chief Adjudicator" },
       { event: "uadc", year: "2025", role: "Deputy Chief Adjudicator" },
       { event: "dtu-pd", year: "2023", role: "Convenor" },
     ],
   },
-  { slug: "anjali", name: "Anjali", group: "senior", role: "Senior Advisor", credits: [] },
-  { slug: "kamal", name: "Kamal", group: "senior", role: "Senior Advisor", credits: [] },
+  { slug: "anjali", name: "Anjali", group: "senior", role: "Senior Advisor", photo: "anjali", credits: [] },
+  { slug: "kamal", name: "Kamal", group: "senior", role: "Senior Advisor", photo: "kamal", credits: [] },
 ];
 
 const advisors: [string, string, string][] = [
@@ -223,13 +227,15 @@ const slugify = (s: string) =>
     .replace(/^-|-$/g, "");
 
 for (const [name, country, region] of advisors) {
+  const slug = slugify(name);
   people.push({
-    slug: slugify(name),
+    slug,
     name,
     group: "advisor",
     role: "Regional Advisor",
     country,
     region,
+    photo: slug,
     credits: [],
   });
 }

@@ -1,7 +1,7 @@
 /**
  * The tournaments this team has between them judged, chaired, run or won.
  * Every entry comes from the credits on the tournament's own announcement
- * posters — nothing is inferred, and acronyms are only expanded where the
+ * posters. Nothing is inferred, and acronyms are only expanded where the
  * expansion is certain.
  */
 export type Event = {

@@ -14,7 +14,7 @@ export default function Countdown() {
   }, []);
   return (
     <span>
-      <span className="datum">{days === null ? "—" : days.toLocaleString("en-IN")}</span> days to go
+      <span className="datum">{days === null ? "···" : days.toLocaleString("en-IN")}</span> days to go
     </span>
   );
 }
