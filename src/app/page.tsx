@@ -16,56 +16,6 @@ export default function Home() {
     <>
       <Hero />
 
-      <Band>
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-          <div>
-            <H2 sub="Two teams of three, eight minutes a speech, one reply each. If you have only debated British Parliamentary, the week will feel different.">
-              The format
-            </H2>
-            <Prose className="mt-6">
-              <p>
-                Australs puts one team against one team. Nothing sits between you and the people
-                arguing the other side, so every claim you make gets answered by name. Cases build
-                across three speeches instead of squeezing into one, which rewards depth over
-                breadth.
-              </p>
-              <p>
-                Then the reply. Four minutes, given by your first or second speaker, asking you to
-                weigh what happened rather than add to it. Negative goes first. Affirmative closes
-                the round.
-              </p>
-              <p>
-                Some motions land in your inbox weeks early. Others go up an hour before you debate
-                them.
-              </p>
-            </Prose>
-            <Link href="/tournament/#format" className="mt-6 inline-block border-b border-navy/40 pb-0.5 text-[14.5px] text-navy hover:border-navy">
-              Speech by speech
-            </Link>
-          </div>
-          <div className="box self-start">
-            <p className="rail border-b border-ink/15 px-4 py-2.5 text-ink/72">A round, in order</p>
-            <ol>
-              {[
-                ["1st Affirmative", "8 min"],
-                ["1st Negative", "8 min"],
-                ["2nd Affirmative", "8 min"],
-                ["2nd Negative", "8 min"],
-                ["3rd Affirmative", "8 min"],
-                ["3rd Negative", "8 min"],
-                ["Negative reply", "4 min"],
-                ["Affirmative reply", "4 min"],
-              ].map(([who, len]) => (
-                <li key={who} className="flex items-baseline justify-between border-b border-ink/15 px-4 py-2 last:border-0">
-                  <span className="text-[14px]">{who}</span>
-                  <span className="datum text-[12px] text-navy">{len}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </Band>
-
       <Band tone="navy">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)] lg:gap-14">
           <div>
