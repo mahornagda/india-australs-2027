@@ -2,11 +2,10 @@ import Link from "next/link";
 import { PageHead, Band, H2, Prose } from "@/components/Shell";
 import LogBoard from "@/components/LogBoard";
 import { asset } from "@/lib/asset";
-import { asset } from "@/lib/asset";
 import { groups, counts, updated } from "@/content/progress";
 
 export const metadata = {
-  title: "Where the website stands",
+  title: "Build log",
   description:
     "A plain list of what the India Australs 2027 website can already do, what it is waiting on, and who has the answer.",
 };
