@@ -18,7 +18,7 @@ export default function InterestForm() {
           Until then there is nowhere for your details to go, and collecting them without somewhere
           safe to put them would be worse than saying so.
         </p>
-        <p className="mt-4 text-[15px] font-light text-ink/60">
+        <p className="mt-4 text-[15px] font-light text-ink/72">
           Follow our announcements in the meantime — registration will not open without notice.
         </p>
       </div>
@@ -35,7 +35,7 @@ export default function InterestForm() {
     >
       <div className="space-y-5">
         <label className="block">
-          <span className="text-[15px] font-light text-ink/65">Your name</span>
+          <span className="text-[15px] font-light text-ink/75">Your name</span>
           <input
             required
             name={interestForm.nameField}
@@ -43,7 +43,7 @@ export default function InterestForm() {
           />
         </label>
         <label className="block">
-          <span className="text-[15px] font-light text-ink/65">Email</span>
+          <span className="text-[15px] font-light text-ink/75">Email</span>
           <input
             required
             type="email"
@@ -52,7 +52,7 @@ export default function InterestForm() {
           />
         </label>
         <label className="block">
-          <span className="text-[15px] font-light text-ink/65">University or institution</span>
+          <span className="text-[15px] font-light text-ink/75">University or institution</span>
           <input
             name={interestForm.instField}
             className="mt-1.5 w-full border border-ink/25 bg-transparent px-4 py-3 text-[1.05rem] focus:border-navy"

@@ -49,7 +49,7 @@ export default function Tournament() {
           <dl className="ticks h-fit border border-ink/15 p-7">
             {facts.map((f) => (
               <div key={f.k} className="border-b border-ink/10 py-3.5 first:pt-0 last:border-0 last:pb-0">
-                <dt className="text-[13.5px] font-light text-ink/50">{f.k}</dt>
+                <dt className="text-[13.5px] font-light text-ink/68">{f.k}</dt>
                 <dd className="mt-0.5 text-[1.05rem] text-ink">{f.v}</dd>
               </div>
             ))}

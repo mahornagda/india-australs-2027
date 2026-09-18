@@ -7,7 +7,7 @@ export default function Rail({
   className?: string;
 }) {
   const line = inverted ? "var(--rule-inv-soft)" : "var(--rule-soft)";
-  const text = inverted ? "text-cream/60" : "text-ink/45";
+  const text = inverted ? "text-cream/74" : "text-ink/68";
   return (
     <div className={`flex items-center gap-4 ${className}`} aria-hidden="true">
       <span className="h-px flex-1" style={{ background: line }} />

@@ -57,7 +57,7 @@ export default function Register() {
             <ol className="mt-10 space-y-8">
               {steps.map((s) => (
                 <li key={s.t} className="grid grid-cols-[auto_1fr] gap-5">
-                  <span className="display mt-1 text-[13px] tracking-[0.28em] text-navy/45">
+                  <span className="display mt-1 text-[13px] tracking-[0.28em] text-navy/70">
                     {s.n.toUpperCase()}
                   </span>
                   <div>

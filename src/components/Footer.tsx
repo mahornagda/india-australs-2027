@@ -74,14 +74,14 @@ export default function Footer() {
               className="ticks ticks-inv mt-7 block border border-cream/25 px-4 py-3.5 transition-colors hover:border-gold/70"
             >
               <span className="block text-[15px] text-gold">Where the website stands</span>
-              <span className="mt-1 block text-[13.5px] font-light leading-snug text-cream/60">
+              <span className="mt-1 block text-[13.5px] font-light leading-snug text-cream/74">
                 What is live, what we are waiting on, and who has the answer
               </span>
             </Link>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-2 border-t border-cream/15 pt-6 text-[13.5px] font-light text-cream/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-2 border-t border-cream/15 pt-6 text-[13.5px] font-light text-cream/72 sm:flex-row sm:items-center sm:justify-between">
           <p>
             {site.venue}, {site.city}
           </p>

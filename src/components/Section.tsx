@@ -14,7 +14,7 @@ export function Page({
       <div className="grain pointer-events-none absolute inset-0 -z-10" />
       <div className="mx-auto max-w-6xl px-5 pt-14 sm:pt-20">
         <header className="max-w-[46ch]">
-          {eyebrow && <p className="display text-[19px] text-navy/60">{eyebrow}</p>}
+          {eyebrow && <p className="display text-[19px] text-navy/75">{eyebrow}</p>}
           <h1 className="mt-1 text-[clamp(2.6rem,7vw,4.4rem)] text-ink">{title}</h1>
           {lede && (
             <p className="mt-6 text-[clamp(1.1rem,2.2vw,1.3rem)] leading-[1.62] font-light text-ink/78">

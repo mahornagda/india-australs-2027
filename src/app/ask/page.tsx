@@ -44,7 +44,7 @@ export default function Ask() {
               <p className="mt-3 max-w-[40ch] text-[1.02rem] font-light leading-relaxed text-ink/78">
                 {r.what}
               </p>
-              <p className="mt-4 text-[14.5px] font-light text-ink/55">{r.names}</p>
+              <p className="mt-4 text-[14.5px] font-light text-ink/70">{r.names}</p>
             </li>
           ))}
         </ul>
@@ -77,7 +77,7 @@ export default function Ask() {
                 {r.people.map((p) => (
                   <li key={p.name} className="text-[15.5px] font-light text-cream/80">
                     {p.name}
-                    <span className="text-cream/45"> · {p.country}</span>
+                    <span className="text-cream/72"> · {p.country}</span>
                   </li>
                 ))}
               </ul>

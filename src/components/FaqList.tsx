@@ -21,7 +21,7 @@ export default function FaqList() {
   return (
     <div>
       <label className="block">
-        <span className="text-[15px] font-light text-ink/60">
+        <span className="text-[15px] font-light text-ink/72">
           Type a word and the list narrows
         </span>
         <input
@@ -29,11 +29,11 @@ export default function FaqList() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="visa, fee, judge, equity…"
-          className="mt-2 w-full max-w-md border border-ink/25 bg-transparent px-4 py-3 text-[1.05rem] text-ink placeholder:text-ink/35 focus:border-navy"
+          className="mt-2 w-full max-w-md border border-ink/25 bg-transparent px-4 py-3 text-[1.05rem] text-ink placeholder:text-ink/70 focus:border-navy"
         />
       </label>
 
-      <p aria-live="polite" className="mt-3 text-[14px] font-light text-ink/50">
+      <p aria-live="polite" className="mt-3 text-[14px] font-light text-ink/68">
         {hits.length === faqs.length
           ? `${faqs.length} questions`
           : `${hits.length} of ${faqs.length} questions`}

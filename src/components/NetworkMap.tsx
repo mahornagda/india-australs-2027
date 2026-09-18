@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { places, DELHI, project, MAP_W, MAP_H, WIN } from "@/content/map";
 
 const REGIONS = ["South Asia", "South East Asia", "North East Asia", "Oceania", "Beyond Australasia"];
@@ -20,6 +20,16 @@ function arc(lat: number, lon: number) {
 
 export default function NetworkMap() {
   const [active, setActive] = useState<string | null>(null);
+  const scroller = useRef<HTMLDivElement>(null);
+
+  // On a phone the sheet is wider than the screen. Open it on Delhi, not on the Pacific.
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el) return;
+    const over = el.scrollWidth - el.clientWidth;
+    if (over > 0) el.scrollLeft = over * 0.62;
+  }, []);
+
   const lit = (r: string) => active === null || active === r;
 
   const lons = [];
@@ -37,7 +47,7 @@ export default function NetworkMap() {
           className={`border px-3 py-1.5 text-[13.5px] transition-colors ${
             active === null
               ? "border-gold bg-gold/20 text-cream"
-              : "border-cream/25 text-cream/65 hover:border-cream/50"
+              : "border-cream/25 text-cream/76 hover:border-cream/50"
           }`}
         >
           All regions
@@ -51,7 +61,7 @@ export default function NetworkMap() {
             className={`border px-3 py-1.5 text-[13.5px] transition-colors ${
               active === r
                 ? "border-gold bg-gold/20 text-cream"
-                : "border-cream/25 text-cream/65 hover:border-cream/50"
+                : "border-cream/25 text-cream/76 hover:border-cream/50"
             }`}
           >
             {r}
@@ -59,7 +69,7 @@ export default function NetworkMap() {
         ))}
       </div>
 
-      <div className="-mx-5 mt-6 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+      <div ref={scroller} className="-mx-5 mt-6 overflow-x-auto px-5 sm:mx-0 sm:px-0">
       <svg
         viewBox={`0 0 ${MAP_W} ${MAP_H}`}
         className="w-full min-w-[700px]"
@@ -128,7 +138,7 @@ export default function NetworkMap() {
       </svg>
       </div>
 
-      <p className="mt-4 text-[14px] font-light text-cream/55">
+      <p className="mt-4 text-[14px] font-light text-cream/72">
         {active
           ? `${places.filter((p) => p.region === active).length} countries in ${active}.`
           : `${places.length} countries, five regions.`}{" "}

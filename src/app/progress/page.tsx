@@ -25,7 +25,7 @@ function Tally({ n, label, note }: { n: number; label: string; note: string }) {
     <div className="bg-paper p-7">
       <p className="display text-[3.4rem] leading-none text-navy">{n}</p>
       <p className="mt-2 text-[1.1rem] text-ink">{label}</p>
-      <p className="mt-1.5 text-[14.5px] font-light leading-snug text-ink/60">{note}</p>
+      <p className="mt-1.5 text-[14.5px] font-light leading-snug text-ink/72">{note}</p>
     </div>
   );
 }
@@ -38,7 +38,7 @@ export default function Progress() {
         title="Where the website stands"
         lede="No jargon, no tickets. This is the whole picture of what the site can already do, what it is holding a blank space for, and the name of the person who can fill it in."
       >
-        <p className="mt-6 text-[14.5px] font-light text-ink/50">Last updated {updated}.</p>
+        <p className="mt-6 text-[14.5px] font-light text-ink/68">Last updated {updated}.</p>
       </Page>
 
       <Band tone="paper" className="!pt-14">
@@ -70,7 +70,7 @@ export default function Progress() {
             <span className="bg-gold" style={{ width: `${(counts.waiting / total) * 100}%` }} />
             <span className="bg-slate/45" style={{ width: `${(counts.later / total) * 100}%` }} />
           </div>
-          <p className="mt-3 text-[14.5px] font-light text-ink/60">
+          <p className="mt-3 text-[14.5px] font-light text-ink/72">
             {counts.done} of {total} done. The website itself is finished — what is left is either
             an answer we do not have, or the second build.
           </p>
@@ -104,13 +104,13 @@ export default function Progress() {
               key={i.what}
               className="grid gap-x-8 gap-y-2 border-b border-cream/15 py-6 sm:grid-cols-[auto_1fr_minmax(0,210px)]"
             >
-              <span className="display hidden pt-1 text-[13px] tracking-[0.24em] text-cream/30 sm:block">
+              <span className="display hidden pt-1 text-[13px] tracking-[0.24em] text-cream/72 sm:block">
                 {String(n + 1).padStart(2, "0")}
               </span>
               <div>
                 <p className="text-[1.12rem] leading-snug text-cream">{i.what}</p>
                 {i.note && (
-                  <p className="mt-1.5 max-w-[56ch] text-[15px] font-light leading-snug text-cream/55">
+                  <p className="mt-1.5 max-w-[56ch] text-[15px] font-light leading-snug text-cream/72">
                     {i.note}
                   </p>
                 )}
@@ -135,7 +135,7 @@ export default function Progress() {
               <div>
                 <p className="text-[1.08rem] leading-snug text-ink">{i.what}</p>
                 {i.note && (
-                  <p className="mt-1 text-[14.5px] font-light leading-snug text-ink/55">{i.note}</p>
+                  <p className="mt-1 text-[14.5px] font-light leading-snug text-ink/70">{i.note}</p>
                 )}
               </div>
             </li>

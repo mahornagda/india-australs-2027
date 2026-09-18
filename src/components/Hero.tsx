@@ -57,7 +57,7 @@ export default function Hero() {
         <p className="display mt-7 text-[clamp(1.35rem,4vw,2rem)] text-navy">
           {site.datesLabel}
         </p>
-        <p className="mt-1 text-[1.05rem] font-light text-ink/65">
+        <p className="mt-1 text-[1.05rem] font-light text-ink/75">
           {site.venue}, {site.city}
         </p>
 
@@ -76,7 +76,7 @@ export default function Hero() {
           </Link>
         </div>
 
-        <p className="mt-8 text-[14px] font-light tracking-wide text-ink/45">
+        <p className="mt-8 text-[14px] font-light tracking-wide text-ink/68">
           <Countdown />
         </p>
       </div>

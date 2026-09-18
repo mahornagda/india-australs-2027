@@ -47,11 +47,11 @@ export default function Schedule() {
         <ol className="grid gap-px border border-ink/15 bg-ink/15 sm:grid-cols-2 lg:grid-cols-4">
           {list.map((d, i) => (
             <li key={d.label} className="bg-paper p-6">
-              <p className="display text-[13px] tracking-[0.3em] text-navy/50">
+              <p className="display text-[13px] tracking-[0.3em] text-navy/70">
                 DAY {String(i + 1).padStart(2, "0")}
               </p>
               <p className="mt-2 text-[1.2rem] leading-tight text-ink">{d.label}</p>
-              <p className="mt-3 text-[14.5px] font-light text-ink/45">To be set</p>
+              <p className="mt-3 text-[14.5px] font-light text-ink/68">To be set</p>
             </li>
           ))}
         </ol>

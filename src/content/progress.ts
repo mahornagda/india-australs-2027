@@ -29,7 +29,7 @@ export const groups: Group[] = [
       },
       {
         what: "Read the questions we can answer, and see plainly which ones we cannot yet",
-        note: "Nineteen questions. Ten are answered, nine are openly marked as undecided",
+        note: "Nineteen questions. Eight are answered, eleven are openly marked as undecided",
       },
       { what: "Search the questions by typing, instead of scrolling the whole list" },
       { what: "Leave a name and an email to be told the day registration opens" },

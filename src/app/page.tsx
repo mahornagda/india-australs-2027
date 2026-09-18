@@ -41,7 +41,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="mt-4 text-[1.55rem] leading-tight">{p.name}</h3>
-              <p className="text-[15px] font-light text-ink/60">{p.country}</p>
+              <p className="text-[15px] font-light text-ink/72">{p.country}</p>
               <p className="mt-3 text-[15px] font-light leading-relaxed text-ink/75">
                 {p.credits?.[0]}
               </p>

@@ -51,7 +51,7 @@ export default function Resources() {
             <li key={p.t} className="bg-paper p-7">
               <h2 className="display text-[1.3rem] text-ink">{p.t}</h2>
               <p className="mt-3 text-[1rem] font-light leading-relaxed text-ink/75">{p.d}</p>
-              <p className="mt-5 border-t border-ink/12 pt-3 text-[13.5px] font-light text-ink/50">
+              <p className="mt-5 border-t border-ink/12 pt-3 text-[13.5px] font-light text-ink/68">
                 Written by {p.who}
               </p>
             </li>

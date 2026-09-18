@@ -30,7 +30,7 @@ function Portrait({ p, role }: { p: Person; role: string }) {
       </div>
       <div>
         <h3 className="text-[1.7rem] leading-tight">{p.name}</h3>
-        <p className="mt-0.5 text-[15px] font-light text-ink/60">
+        <p className="mt-0.5 text-[15px] font-light text-ink/72">
           {[p.role ?? role, p.country].filter(Boolean).join(" · ")}
         </p>
         <ul className="mt-4 space-y-1.5">
@@ -87,7 +87,7 @@ export default function People() {
           {orgComm.map((p) => (
             <li key={p.name} className="ticks border-t border-ink/15 pt-6">
               <h3 className="text-[1.45rem] leading-tight">{p.name}</h3>
-              <p className="mt-0.5 text-[15px] font-light text-ink/60">{p.role}</p>
+              <p className="mt-0.5 text-[15px] font-light text-ink/72">{p.role}</p>
               <ul className="mt-3 space-y-1 text-[15px] font-light leading-snug text-ink/75">
                 {p.credits?.map((c) => (
                   <li key={c}>{c}</li>
@@ -123,7 +123,7 @@ export default function People() {
                   {r.people.map((p) => (
                     <li key={p.name}>
                       <span className="block text-[1.05rem] font-light text-cream">{p.name}</span>
-                      <span className="block text-[14px] font-light text-cream/55">
+                      <span className="block text-[14px] font-light text-cream/72">
                         {p.country}
                       </span>
                     </li>
