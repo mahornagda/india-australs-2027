@@ -1,4 +1,4 @@
-export type Item = { what: string; note?: string; owner?: string };
+export type Item = { what: string; note?: string; owner?: string; area?: string };
 export type Group = {
   key: string;
   title: string;
@@ -60,53 +60,141 @@ export const groups: Group[] = [
       "Each of these is a blank on the site right now. The page is already built and needs the answer typed in. The name beside it belongs to whoever has it.",
     items: [
       {
+        area: "Registration",
         what: "Confirm 27 June to 4 July 2027 is final, and not moving",
         owner: "Sayiram",
       },
       {
-        what: "Who is allowed to enter: which countries, and how many teams a university may send",
+        area: "Registration",
+        what: "Which countries and regions are eligible",
         owner: "Sayiram and the adjudication core",
       },
-      { what: "The entry fee, and exactly what it covers", owner: "Sayiram" },
-      { what: "The day registration opens and the day it closes", owner: "Org Comm" },
       {
+        area: "Registration",
+        what: "The cap on teams per university",
+        owner: "Sayiram and the adjudication core",
+      },
+      {
+        area: "Registration",
+        what: "Whether a debater signs up for themselves, or their university signs up for its teams",
+        note: "This changes the shape of the registration form, so it is worth settling early",
+        owner: "Org Comm",
+      },
+      {
+        area: "Registration",
+        what: "The day registration opens and the day it closes",
+        owner: "Org Comm",
+      },
+      {
+        area: "Money",
+        what: "The entry fee, and exactly what it covers",
+        owner: "Sayiram",
+      },
+      {
+        area: "Money",
+        what: "Whether accommodation at The Grand sits inside the fee or on top of it",
+        owner: "Sayiram",
+      },
+      {
+        area: "Money",
         what: "How people pay: card, bank transfer or UPI",
         note: "This decides which payment company we sign up with",
         owner: "Org Comm",
       },
       {
-        what: "Whether a debater signs up for themselves, or a university signs up for its teams",
-        note: "This changes the shape of the registration form, so it is worth settling early",
+        area: "Money",
+        what: "The scholarship route: who it is for, and what it covers",
         owner: "Org Comm",
       },
       {
+        area: "Judging",
+        what: "How many judges a team must bring",
+        owner: "the adjudication core",
+      },
+      {
+        area: "Judging",
+        what: "Whether independent adjudicator applications are capped, and how they are assessed",
+        owner: "the adjudication core",
+      },
+      {
+        area: "Rounds",
+        what: "How many preliminary rounds, and how many motions go out in advance",
+        owner: "the adjudication core",
+      },
+      {
+        area: "Rounds",
+        what: "The break structure: Open, ESL, EFL, and how many teams in each",
+        owner: "the adjudication core",
+      },
+      {
+        area: "Rounds",
+        what: "The day-by-day running order",
+        owner: "Jemma and Pranjal",
+      },
+      {
+        area: "Rounds",
+        what: "Whether the existing tab software stays, or is wired into this site",
+        owner: "Jemma",
+      },
+      {
+        area: "Equity",
+        what: "Who sits on the equity team, and the confidential address to reach them",
+        owner: "Equity team",
+      },
+      {
+        area: "Equity",
+        what: "The equity policy, written out in full",
+        owner: "Equity team",
+      },
+      {
+        area: "Equity",
+        what: "The participant handbook, written out",
+        owner: "Org Comm",
+      },
+      {
+        area: "Logistics",
+        what: "How teams get between The Grand and campus each morning, and who pays for it",
+        owner: "Org Comm",
+      },
+      {
+        area: "Logistics",
+        what: "When we can issue visa invitation letters, and what they cover",
+        owner: "Org Comm",
+      },
+      {
+        area: "Logistics",
+        what: "A room-by-room access survey of the campus and the hotel",
+        note: "So we can say what is step-free instead of assuming",
+        owner: "Org Comm",
+      },
+      {
+        area: "Website",
         what: "The email address the site should send from",
         note: "Confirmation emails need an address that is ours and that will not land in spam",
         owner: "Org Comm",
       },
-      { what: "The day-by-day running order, once rounds are set", owner: "Jemma and Pranjal" },
-      { what: "The participant handbook and the equity policy, written out", owner: "Equity team" },
       {
-        what: "Whether we keep the existing tab software or wire it into this site",
-        owner: "Jemma",
-      },
-      {
-        what: "How long we keep people's details after the tournament ends",
-        owner: "Org Comm",
-      },
-      {
-        what: "Surnames for Anjali and Kamal, our two senior advisors",
-        note: "Their posters only carry first names",
-        owner: "Rajat and Krishnatara",
-      },
-      {
+        area: "Website",
         what: "A web address of our own to put the site on",
         note: "It sits on a free address today, which works but does not read as ours",
         owner: "Sayiram",
       },
       {
-        what: "Whether the campus and the hotel are step-free, checked rather than assumed",
+        area: "Website",
+        what: "How long we keep people's details after the tournament ends",
         owner: "Org Comm",
+      },
+      {
+        area: "People",
+        what: "Surnames for Anjali and Kamal, our two senior advisors",
+        note: "Their posters only carry first names",
+        owner: "Rajat and Krishnatara",
+      },
+      {
+        area: "People",
+        what: "Debating records for the twenty-one advisors",
+        note: "The posters carry their names and countries and nothing else",
+        owner: "Rajat and Krishnatara",
       },
     ],
   },

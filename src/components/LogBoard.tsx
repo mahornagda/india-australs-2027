@@ -50,7 +50,10 @@ export default function LogBoard() {
               {String(n + 1).padStart(2, "0")}
             </span>
             <div>
-              <p className="text-[15px] leading-snug text-cream">{i.what}</p>
+              <p className="text-[15px] leading-snug text-cream">
+                {i.area && <span className="rail mr-2.5 align-middle text-cream/60">{i.area}</span>}
+                {i.what}
+              </p>
               {i.note && <p className="mt-1 max-w-[62ch] text-[13.5px] leading-snug text-cream/70">{i.note}</p>}
             </div>
             <p className="datum text-[12px] text-gold sm:text-right">{i.owner}</p>

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { PageHead, Band, H2, Prose } from "@/components/Shell";
 import LogBoard from "@/components/LogBoard";
+import { asset } from "@/lib/asset";
+import { asset } from "@/lib/asset";
 import { groups, counts, updated } from "@/content/progress";
 
 export const metadata = {
@@ -48,6 +50,12 @@ export default function Progress() {
           <h2 className="text-[clamp(1.7rem,3.4vw,2.4rem)] text-gold">{groups[1].title}</h2>
           <p className="mt-3 text-[15px] leading-[1.62] text-cream/85">{groups[1].blurb}</p>
           <p className="mt-2 text-[14px] text-cream/76">Tap a name to see only theirs.</p>
+          <a
+            href={asset("/open-decisions.xlsx")}
+            className="mt-5 inline-block border border-gold/60 bg-gold/15 px-5 py-2.5 text-[14px] text-gold transition-colors duration-150 hover:bg-gold hover:text-ink"
+          >
+            Download the list as a spreadsheet
+          </a>
         </div>
         <div className="mt-8">
           <LogBoard />
